@@ -4,7 +4,7 @@
   "description": "everything I should know to test vue",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "keywords": [
     "vue",
@@ -13,5 +13,8 @@
     "e2e-test"
   ],
   "author": "AngryChocobo <1347237169@qq.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.0.3"
+  }
 }
