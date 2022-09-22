@@ -63,4 +63,22 @@ ps: 这里 ts 会提示缺少类型，`npm i --save-dev @types/jest` 即可
 
 这里我们采用方法 2，更少的配置，可以将依赖 `@babel/preset-typescript` 删除咯
 
-> npm uninstall @babel/preset-typescript
+```bash
+npm uninstall @babel/preset-typescript
+```
+
+## tsconfig
+
+目前执行 npm run test 时候，有一个小 warn
+
+```bash
+ts-jest[config] (WARN) message TS151001: If you have issues related to imports, you should consider setting `esModuleInterop` to `true` in your TypeScript configurModuleInterop` to `true` in your TypeScript configuration file (usually `tsconfig.json`).
+```
+
+但是我们现在还没有 tsconfig 呐。那就搞一个出来
+
+```bash
+tsc --init
+```
+
+并且里边有了对应的配置啦，搞定
