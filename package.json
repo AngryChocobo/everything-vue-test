@@ -16,5 +16,11 @@
   "license": "ISC",
   "dependencies": {
     "jest": "^29.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "babel-jest": "^29.0.3",
+    "jest-environment-jsdom": "^29.0.3"
   }
 }
