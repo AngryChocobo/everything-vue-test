@@ -16,7 +16,7 @@ npm install --save-dev jest-environment-jsdom
 
 ## 让 jest 支持 ts
 
-### 方法 1
+### via babel
 
 npm install --save-dev @babel/preset-typescript
 
@@ -37,7 +37,7 @@ ps: 这里 ts 会提示缺少类型，`npm i --save-dev @types/jest` 即可
 
 不过官方也提到了，这实际上是使用了 babel 来处理 ts，所以 jest 不会做 type check，解决方案就是使用 `ts-jest` 来替代
 
-### 方法 2 ts-jest
+### via ts-jest
 
 按照 [官方文档](https://kulshekhar.github.io/ts-jest)进行操作:
 
