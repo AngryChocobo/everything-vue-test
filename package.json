@@ -1,0 +1,17 @@
+{
+  "name": "everything-vue-test",
+  "version": "1.0.0",
+  "description": "everything I should know to test vue",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "vue",
+    "test",
+    "unit-test",
+    "e2e-test"
+  ],
+  "author": "AngryChocobo <1347237169@qq.com>",
+  "license": "ISC"
+}
