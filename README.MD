@@ -97,3 +97,22 @@ test("should throw a error", () => {
   expect(() => throw1()).toThrow(Error);
 });
 ```
+
+## callback
+
+这里有一个有意思的事情，当回调函数的 done 没有被调用时候，单元测试就会超时导致报错，那么实际上它是如何检查一个函数究竟有几个参数的呢？ 答案是 func.length
+
+```ts
+test("this case will timeout", (done) => {
+  expect(1).toBe(1);
+});
+```
+
+```ts
+function argsCount(callback) {
+  console.log(callback.length);
+}
+
+console.log(argsCount(() => {})); // 0
+console.log(argsCount((a, b) => {})); // 2
+```
