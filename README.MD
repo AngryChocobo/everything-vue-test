@@ -82,3 +82,18 @@ tsc --init
 ```
 
 并且里边有了对应的配置啦，搞定
+
+## throw error
+
+> Note: the function that throws an exception needs to be invoked within a wrapping function otherwise the toThrow assertion will fail.
+
+```ts
+test("should throw a error", () => {
+  function throw1() {
+    throw new Error("123");
+  }
+  expect(() => throw1()).toThrow();
+  expect(() => throw1()).toThrow("123");
+  expect(() => throw1()).toThrow(Error);
+});
+```
