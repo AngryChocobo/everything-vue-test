@@ -4,11 +4,15 @@ everything I should know to test vue
 
 ## jest config 相关
 
-> jest --init
+```bash
+jest --init
+```
 
 创建 jest config 时候，我们希望代码可以测试 dom，但是 jest-environment-jsdom 从 28 版本开始不再默认安装，所以我们需要手动:
 
-> npm install --save-dev jest-environment-jsdom
+```bash
+npm install --save-dev jest-environment-jsdom
+```
 
 ## 让 jest 支持 ts
 
@@ -45,6 +49,15 @@ ps: 这里 ts 会提示缺少类型，`npm i --save-dev @types/jest` 即可
 |   **Running tests** | `npm test` or `npx jest`       | `yarn test` or `yarn jest`           |
 
 同样成功，对比一下 ts-node 生成的 jest.config.js ，多了一个 `preset: "ts-jest"`。 这种设计在很多的配置文件中都存在，立个 TODO 日后研究一下
+
+我们这里发现 ts-jest 的 jest.config.js 还多了一个
+`/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */`，它起到了智能提示的作用，但是更好的做法是我们直接改成 jest.config.ts。 不过改完以后发现再次执行 npm run test 就会报错：
+
+> Error: Jest: Failed to parse the TypeScript config file /workspace/jest.config.ts
+> Error: Jest: 'ts-node' is required for the TypeScript configuration files. Make sure it is installed
+
+`npm i -D ts-node` 之后解决了。
+好嘞，又多了一个新坑：TODO ts-node
 
 ---
 
