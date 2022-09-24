@@ -116,3 +116,11 @@ function argsCount(callback) {
 console.log(argsCount(() => {})); // 0
 console.log(argsCount((a, b) => {})); // 2
 ```
+
+> npm uninstall @babel/preset-typescript
+
+---
+
+## Fake timer
+
+如果我们的逻辑中存在 setTimeout 1 分钟等逻辑，难道测试时候真的要等 1 分钟吗？显然不可能，于是我们要用 time mock 来 **跳过** setTimeout 的时间
