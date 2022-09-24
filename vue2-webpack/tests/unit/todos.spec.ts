@@ -1,4 +1,4 @@
-import { shallowMount, createLocalVue, mount } from "@vue/test-utils";
+import { shallowMount, createLocalVue, mount, Wrapper } from "@vue/test-utils";
 import Element from "element-ui";
 const localVue = createLocalVue();
 localVue.use(Element);
@@ -7,14 +7,22 @@ localVue.use(Element);
 import TodoApp from "../../src/views/TodoApp.vue";
 
 describe("TodosApp", () => {
-  it("should correct render", () => {
-    const wrapper = mount(TodoApp, {
+  let wrapper: Wrapper<Vue>,
+    input: Wrapper<Vue, Element>,
+    workList: Wrapper<Vue, Element>;
+  beforeEach(() => {
+    wrapper = mount(TodoApp, {
       localVue,
     });
-    const input = wrapper.find("[unit-test='input']");
+    input = wrapper.find("[unit-test='input']");
+    workList = wrapper.find("[unit-test='work-list']");
+  });
+  afterEach(() => {
+    wrapper.destroy();
+  });
+  it("should correct render", () => {
     expect(input.exists()).toBe(true);
     expect((input.element as HTMLInputElement).value).toBe("Hello");
-    const workList = wrapper.find("[unit-test='work-list']");
     expect(workList.exists()).toBe(true);
     expect(workList.element.children.length).toBe(2);
   });
