@@ -26,4 +26,9 @@ describe("TodosApp", () => {
     expect(workList.exists()).toBe(true);
     expect(workList.element.children.length).toBe(2);
   });
+  it("should v-model inputStr", async () => {
+    await input.setValue("Go home");
+    expect((wrapper.vm as any).inputStr).toBe("Go home");
+    expect((input.element as HTMLInputElement).value).toBe("Go home");
+  });
 });
