@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-input unit-test="input" v-model="inputStr" />
+    <el-input unit-test="input" v-model="inputStr" @keydown="onKeyDown" />
     <ul class="work-list" unit-test="work-list">
       <li v-for="work in workList" :key="work.id">
         <span class="content">{{ work.content }}</span>
@@ -9,7 +9,8 @@
   </div>
 </template>
 <script lang="ts">
-export default {
+import Vue from "vue";
+export default Vue.extend({
   data() {
     return {
       inputStr: "Hello",
@@ -31,7 +32,17 @@ export default {
     //   required: true,
     // },
   },
-};
+  methods: {
+    onKeyDown(e: KeyboardEvent) {
+      if (e.code === "Enter") {
+        this.workList.push({
+          id: this.workList.length + 1,
+          content: this.inputStr,
+        });
+      }
+    },
+  },
+});
 </script>
 <style lang="less">
 //

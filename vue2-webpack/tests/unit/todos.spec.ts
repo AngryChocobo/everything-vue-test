@@ -31,4 +31,10 @@ describe("TodosApp", () => {
     expect((wrapper.vm as any).inputStr).toBe("Go home");
     expect((input.element as HTMLInputElement).value).toBe("Go home");
   });
+  it("should add a work to workList after press ENTER", async () => {
+    // Looks like vts doesn't support this
+    // await input.trigger("keydown.enter");
+    await (wrapper.vm as any).onKeyDown({ code: "Enter" });
+    expect(workList.element.children.length).toBe(3);
+  });
 });
