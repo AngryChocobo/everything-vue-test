@@ -64,3 +64,9 @@ ps: 这里 ts 会提示缺少类型，`npm i --save-dev @types/jest` 即可
 这里我们采用方法 2，更少的配置，可以将依赖 `@babel/preset-typescript` 删除咯
 
 > npm uninstall @babel/preset-typescript
+
+---
+
+## Fake timer
+
+如果我们的逻辑中存在 setTimeout 1 分钟等逻辑，难道测试时候真的要等 1 分钟吗？显然不可能，于是我们要用 time mock 来 **跳过** setTimeout 的时间
