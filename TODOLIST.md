@@ -26,3 +26,7 @@
 
 - 是一个 input
 - 当键入 enter 时候，发出事件 enter 并清空 input
+
+## 记录问题
+
+- cy 中 contain.text 和 include.text 的区别？
