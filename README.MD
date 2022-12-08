@@ -63,6 +63,60 @@ ps: 这里 ts 会提示缺少类型，`npm i --save-dev @types/jest` 即可
 
 这里我们采用方法 2，更少的配置，可以将依赖 `@babel/preset-typescript` 删除咯
 
+```bash
+npm uninstall @babel/preset-typescript
+```
+
+## tsconfig
+
+目前执行 npm run test 时候，有一个小 warn
+
+```bash
+ts-jest[config] (WARN) message TS151001: If you have issues related to imports, you should consider setting `esModuleInterop` to `true` in your TypeScript configurModuleInterop` to `true` in your TypeScript configuration file (usually `tsconfig.json`).
+```
+
+但是我们现在还没有 tsconfig 呐。那就搞一个出来
+
+```bash
+tsc --init
+```
+
+并且里边有了对应的配置啦，搞定
+
+## throw error
+
+> Note: the function that throws an exception needs to be invoked within a wrapping function otherwise the toThrow assertion will fail.
+
+```ts
+test("should throw a error", () => {
+  function throw1() {
+    throw new Error("123");
+  }
+  expect(() => throw1()).toThrow();
+  expect(() => throw1()).toThrow("123");
+  expect(() => throw1()).toThrow(Error);
+});
+```
+
+## callback
+
+这里有一个有意思的事情，当回调函数的 done 没有被调用时候，单元测试就会超时导致报错，那么实际上它是如何检查一个函数究竟有几个参数的呢？ 答案是 func.length
+
+```ts
+test("this case will timeout", (done) => {
+  expect(1).toBe(1);
+});
+```
+
+```ts
+function argsCount(callback) {
+  console.log(callback.length);
+}
+
+console.log(argsCount(() => {})); // 0
+console.log(argsCount((a, b) => {})); // 2
+```
+
 > npm uninstall @babel/preset-typescript
 
 ---
