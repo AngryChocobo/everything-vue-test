@@ -1,6 +1,11 @@
 <template>
   <div>
-    <input type="checkbox" test-id="status-toggle" :checked="isDone" />
+    <input
+      type="checkbox"
+      test-id="status-toggle"
+      :checked="isDone"
+      @change="onToggleStatus"
+    />
     <span
       class="todo-label"
       test-id="todo-label"
@@ -8,6 +13,7 @@
     >
       {{ label }}
     </span>
+    <button test-id="delete-btn" @click="onDelete">delete</button>
   </div>
 </template>
 
@@ -23,20 +29,18 @@ export default defineComponent({
     },
   },
   methods: {
-    fuck() {
-      this.label;
+    onToggleStatus(e: Event) {
+      this.$emit("toggle", (e.target as HTMLInputElement).checked);
     },
-  },
-  mounted() {
-    console.log(this);
+    onDelete() {
+      this.$emit("delete");
+    },
   },
 });
 </script>
 
 <style lang="less" scoped>
-.status-toggle {
-  .done {
-    text-decoration: line-through;
-  }
+.done {
+  text-decoration: line-through;
 }
 </style>
