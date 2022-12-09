@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="todo-item" test-id="todo-item">
     <input
       type="checkbox"
       test-id="status-toggle"
