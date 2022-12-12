@@ -7,10 +7,12 @@
       :label="item.label"
       :is-done="item.isDone"
       @delete="handleDelete(item)"
-      @add="handleAdd(item)"
+      @toggle="(newStatus) => handleToggle(item, newStatus)"
     >
       {{ item }}
     </TodoItem>
+
+    <TodoInput @add="handleAdd" />
   </div>
 </template>
 
@@ -18,6 +20,7 @@
 import { defineComponent } from "vue";
 import { Todo } from "./type";
 import TodoItem from "./TodoItem.vue";
+import TodoInput from "./TodoInput.vue";
 
 export default defineComponent({
   data() {
@@ -27,6 +30,7 @@ export default defineComponent({
   },
   components: {
     TodoItem,
+    TodoInput,
   },
   methods: {
     onToggleStatus(e: Event) {
@@ -35,8 +39,14 @@ export default defineComponent({
     handleDelete(item: Todo) {
       this.list = this.list.filter((v) => v !== item);
     },
-    handleAdd(item: Todo) {
-      this.list.push(item);
+    handleToggle(item: Todo, newStatus: Todo["isDone"]) {
+      item.isDone = newStatus;
+    },
+    handleAdd(label: string) {
+      this.list.push(this.createNewAdd(label));
+    },
+    createNewAdd(label: string) {
+      return new Todo({ label });
     },
   },
 });

@@ -36,14 +36,26 @@ describe("<TodoApp />", () => {
     cy.get('[test-id="todo-app"]').should("not.contain.text", "Eat breakfast");
   });
 
-  it.skip("can add new one", () => {
+  it("should add new one", () => {
     cy.mount(TodoApp, {
       data() {
         return { list: mockData };
       },
     });
-    cy.get('[test-id="delete-btn"]').first().click();
-    cy.get('[test-id="todo-item"]').should("have.length", 2);
-    cy.get('[test-id="todo-app"]').should("not.contain.text", "Eat breakfast");
+    cy.get('[test-id="todo-item"]').should("have.length", 3);
+    cy.get('[test-id="todo-input"]').type("Hungry{enter}");
+    cy.get('[test-id="todo-item"]').should("have.length", 4);
+    cy.get('[test-id="todo-app"]').should("contain.text", "Hungry");
+  });
+
+  it("should toggle status", () => {
+    cy.mount(TodoApp, {
+      data() {
+        return { list: mockData };
+      },
+    });
+    cy.get('[test-id="todo-label"]').first().should("have.class", "done");
+    cy.get('[test-id="todo-item"] [test-id="status-toggle"]').first().uncheck();
+    cy.get('[test-id="todo-label"]').first().should("have.class", "todo");
   });
 });
