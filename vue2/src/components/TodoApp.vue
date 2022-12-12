@@ -2,7 +2,7 @@
   <div test-id="todo-app">
     <h1>TodoApp</h1>
     <TodoItem
-      v-for="item in list"
+      v-for="item in displayList"
       :key="item.label"
       :label="item.label"
       :is-done="item.isDone"
@@ -11,26 +11,35 @@
     >
       {{ item }}
     </TodoItem>
-
     <TodoInput @add="handleAdd" />
+    <TodoFilter :filter="filter" @change="handleChangeFilter" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import { Todo } from "./type";
 import TodoItem from "./TodoItem.vue";
 import TodoInput from "./TodoInput.vue";
+import TodoFilter from "./TodoFilter.vue";
+
+const filters = {
+  All: (todos: Todo[]) => todos,
+  Active: (todos: Todo[]) => todos.filter((v) => !v.isDone),
+  Done: (todos: Todo[]) => todos.filter((v) => v.isDone),
+};
 
 export default defineComponent({
   data() {
     return {
       list: [] as Todo[],
+      filter: "All" as "All" | "Active" | "Done",
     };
   },
   components: {
     TodoItem,
     TodoInput,
+    TodoFilter,
   },
   methods: {
     onToggleStatus(e: Event) {
@@ -45,8 +54,16 @@ export default defineComponent({
     handleAdd(label: string) {
       this.list.push(this.createNewAdd(label));
     },
+    handleChangeFilter(newFilter: string) {
+      this.filter = newFilter;
+    },
     createNewAdd(label: string) {
       return new Todo({ label });
+    },
+  },
+  computed: {
+    displayList() {
+      return filters[this.filter](this.list);
     },
   },
 });

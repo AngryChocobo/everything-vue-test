@@ -1,6 +1,6 @@
 import TodoApp from "./TodoApp.vue";
 
-const mockData = [
+const mockData = () => [
   {
     label: "Eat breakfast",
     isDone: true,
@@ -19,7 +19,7 @@ describe("<TodoApp />", () => {
   it("should render todolist", () => {
     cy.mount(TodoApp, {
       data() {
-        return { list: mockData };
+        return { list: mockData() };
       },
     });
     cy.get('[test-id="todo-item"]').should("have.length", 3);
@@ -28,7 +28,7 @@ describe("<TodoApp />", () => {
   it("should remove deleted item", () => {
     cy.mount(TodoApp, {
       data() {
-        return { list: mockData };
+        return { list: mockData() };
       },
     });
     cy.get('[test-id="delete-btn"]').first().click();
@@ -39,7 +39,7 @@ describe("<TodoApp />", () => {
   it("should add new one", () => {
     cy.mount(TodoApp, {
       data() {
-        return { list: mockData };
+        return { list: mockData() };
       },
     });
     cy.get('[test-id="todo-item"]').should("have.length", 3);
@@ -51,11 +51,24 @@ describe("<TodoApp />", () => {
   it("should toggle status", () => {
     cy.mount(TodoApp, {
       data() {
-        return { list: mockData };
+        return { list: mockData() };
       },
     });
     cy.get('[test-id="todo-label"]').first().should("have.class", "done");
     cy.get('[test-id="todo-item"] [test-id="status-toggle"]').first().uncheck();
     cy.get('[test-id="todo-label"]').first().should("have.class", "todo");
+  });
+
+  it("should apply status filter", () => {
+    cy.mount(TodoApp, {
+      data() {
+        return { list: mockData(), filter: "All" };
+      },
+    });
+    cy.get('[test-id="todo-item"]').should("have.length", mockData().length);
+    cy.get('[test-id="filter-item"][value="Active"]').check();
+    cy.get('[test-id="todo-item"]').should("have.length", 2);
+    cy.get('[test-id="filter-item"][value="Done"]').check();
+    cy.get('[test-id="todo-item"]').should("have.length", 1);
   });
 });
