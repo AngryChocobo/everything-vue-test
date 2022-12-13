@@ -5,18 +5,17 @@
       <router-link to="/todolist">TodoList</router-link>
     </div>
     <router-view /> -->
-    ok
-    <TodoItem label="Hello" :isDone="true" />
+    <TodoApp />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import TodoItem from "@/components/TodoItem.vue";
+import TodoApp from "@/components/TodoApp.vue";
 
 export default Vue.extend({
   components: {
-    TodoItem,
+    TodoApp,
   },
 });
 </script>
