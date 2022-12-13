@@ -17,13 +17,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent } from "vue";
 import { Todo } from "./type";
 import TodoItem from "./TodoItem.vue";
 import TodoInput from "./TodoInput.vue";
 import TodoFilter from "./TodoFilter.vue";
+import { TodoFilterEnum } from "./types";
 
-const filters = {
+const filters: Record<TodoFilterEnum, (todos: Todo[]) => Todo[]> = {
   All: (todos: Todo[]) => todos,
   Active: (todos: Todo[]) => todos.filter((v) => !v.isDone),
   Done: (todos: Todo[]) => todos.filter((v) => v.isDone),
@@ -33,7 +34,7 @@ export default defineComponent({
   data() {
     return {
       list: [] as Todo[],
-      filter: "All" as "All" | "Active" | "Done",
+      filter: TodoFilterEnum.All as TodoFilterEnum,
     };
   },
   components: {
@@ -54,7 +55,7 @@ export default defineComponent({
     handleAdd(label: string) {
       this.list.push(this.createNewAdd(label));
     },
-    handleChangeFilter(newFilter: string) {
+    handleChangeFilter(newFilter: TodoFilterEnum) {
       this.filter = newFilter;
     },
     createNewAdd(label: string) {

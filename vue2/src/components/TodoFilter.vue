@@ -1,51 +1,58 @@
 <template>
   <div>
-    <input
-      type="radio"
-      test-id="filter-item"
-      name="filters"
-      v-model="model"
-      value="All"
-      id="filter-All"
-    />
-    <label for="filter-All">All</label>
-    <input
-      type="radio"
-      test-id="filter-item"
-      name="filters"
-      v-model="model"
-      value="Active"
-      id="filter-Active"
-    />
-    <label for="filter-Active">Active</label>
-    <input
-      type="radio"
-      test-id="filter-item"
-      name="filters"
-      v-model="model"
-      value="Done"
-      id="filter-Done"
-    />
-    <label for="filter-Done">Done</label>
+    <span v-for="filter in filters" :key="filter.id">
+      <input
+        type="radio"
+        test-id="filter-item"
+        name="filters"
+        v-model="model"
+        :value="filter.value"
+        :id="filter.id"
+      />
+      <label :for="filter.id">{{ filter.label }}</label>
+    </span>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
+import { TodoFilterEnum } from "./types";
 
 export default defineComponent({
   props: {
     value: {
-      type: String,
-      default: "All",
+      type: String as PropType<TodoFilterEnum>,
+      default: TodoFilterEnum.All,
     },
+  },
+  data() {
+    return {
+      TodoFilterEnum,
+      filters: [
+        {
+          id: "filter-All",
+          value: TodoFilterEnum.All,
+          label: "All",
+        },
+        {
+          id: "filter-Active",
+          value: TodoFilterEnum.Active,
+          label: "Active",
+        },
+        {
+          id: "filter-Done",
+          value: TodoFilterEnum.Done,
+          label: "Done",
+        },
+      ],
+    };
   },
   computed: {
     model: {
       get() {
         return this.value;
       },
-      set(newValue: string) {
+      set(newValue: TodoFilterEnum) {
         this.$emit("change", newValue);
       },
     },
