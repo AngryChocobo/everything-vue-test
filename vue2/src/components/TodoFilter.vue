@@ -49,7 +49,7 @@ export default defineComponent({
   },
   computed: {
     model: {
-      get() {
+      get(): TodoFilterEnum {
         return this.value;
       },
       set(newValue: TodoFilterEnum) {

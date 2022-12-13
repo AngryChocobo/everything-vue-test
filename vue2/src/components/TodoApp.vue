@@ -24,17 +24,17 @@ import TodoInput from "./TodoInput.vue";
 import TodoFilter from "./TodoFilter.vue";
 import { TodoFilterEnum } from "./types";
 
-const filters: Record<TodoFilterEnum, (todos: Todo[]) => Todo[]> = {
-  All: (todos: Todo[]) => todos,
-  Active: (todos: Todo[]) => todos.filter((v) => !v.isDone),
-  Done: (todos: Todo[]) => todos.filter((v) => v.isDone),
+const filters = {
+  [TodoFilterEnum.All]: (todos: Todo[]) => todos,
+  [TodoFilterEnum.Active]: (todos: Todo[]) => todos.filter((v) => !v.isDone),
+  [TodoFilterEnum.Done]: (todos: Todo[]) => todos.filter((v) => v.isDone),
 };
 
 export default defineComponent({
   data() {
     return {
       list: [] as Todo[],
-      filter: TodoFilterEnum.All as TodoFilterEnum,
+      filter: TodoFilterEnum.All,
     };
   },
   components: {
@@ -63,7 +63,7 @@ export default defineComponent({
     },
   },
   computed: {
-    displayList() {
+    displayList(): Todo[] {
       return filters[this.filter](this.list);
     },
   },
