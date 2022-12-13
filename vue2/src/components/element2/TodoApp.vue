@@ -1,5 +1,5 @@
 <template>
-  <div test-id="todo-app">
+  <div test-id="todo-app" id="todo-app-element2">
     <h1>Element2 TodoApp</h1>
     <TodoItem
       v-for="item in displayList"
@@ -8,10 +8,11 @@
       :is-done="item.isDone"
       @delete="handleDelete(item)"
       @toggle="(newStatus) => handleToggle(item, newStatus)"
+      class="todo-item"
     >
       {{ item }}
     </TodoItem>
-    <TodoInput @add="handleAdd" />
+    <TodoInput @add="handleAdd" class="todo-input" />
     <TodoFilter :filter="filter" @change="handleChangeFilter" />
   </div>
 </template>
@@ -78,4 +79,11 @@ export default defineComponent({
 });
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+#todo-app-element2 {
+  .todo-input,
+  .todo-item {
+    margin-bottom: 12px;
+  }
+}
+</style>
