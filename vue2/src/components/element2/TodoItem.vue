@@ -38,9 +38,6 @@ export default defineComponent({
       },
     },
   },
-  mounted() {
-    console.log(111, this);
-  },
 });
 </script>
 

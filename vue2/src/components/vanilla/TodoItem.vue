@@ -39,9 +39,6 @@ export default defineComponent({
       },
     },
   },
-  mounted() {
-    console.log("awd", this);
-  },
 });
 </script>
 
