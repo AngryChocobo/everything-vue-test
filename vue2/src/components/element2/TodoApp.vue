@@ -1,6 +1,6 @@
 <template>
   <div test-id="todo-app">
-    <h1>Vanilla TodoApp</h1>
+    <h1>Element2 TodoApp</h1>
     <TodoItem
       v-for="item in displayList"
       :key="item.label"
