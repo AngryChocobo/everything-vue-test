@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem.vue";
 
-describe("<TodoItem />", () => {
+describe("element2 <TodoItem />", () => {
   it("should render done", () => {
     cy.mount(TodoItem, {
       propsData: {
@@ -9,7 +9,7 @@ describe("<TodoItem />", () => {
       },
     });
 
-    cy.get("[test-id='status-toggle']").should("be.checked");
+    cy.get("[test-id='status-toggle']").should("have.class", "is-checked");
     cy.get("[test-id='todo-label']").should("contain.text", "吃饭");
     cy.get("[test-id='todo-label']").should("have.class", "done");
     cy.get("[test-id='todo-label']").should("not.have.class", "todo");
@@ -23,7 +23,7 @@ describe("<TodoItem />", () => {
       },
     });
 
-    cy.get("[test-id='status-toggle']").should("not.be.checked");
+    cy.get("[test-id='status-toggle']").should("not.have.class", "is-checked");
     cy.get("[test-id='todo-label']").should("contain.text", "下班");
     cy.get("[test-id='todo-label']").should("not.have.class", "done");
     cy.get("[test-id='todo-label']").should("have.class", "todo");
@@ -35,11 +35,18 @@ describe("<TodoItem />", () => {
         label: "下班",
         isDone: false,
       },
+    }).then(({ wrapper }) => {
+      return cy.wrap(wrapper).as("vue");
     });
 
-    cy.get("[test-id='status-toggle']").should("not.be.checked");
-    cy.get("[test-id='status-toggle']").check();
-    cy.get("[test-id='status-toggle']").should("be.checked");
+    cy.get("[test-id='status-toggle']").should("not.have.class", "is-checked");
+    cy.get("[test-id='status-toggle']").click();
+    cy.get("@vue").then((current: any) => {
+      current.setProps({
+        isDone: true,
+      });
+    });
+    cy.get("[test-id='status-toggle']").should("have.class", "is-checked");
   });
 
   it("should emit event when toggle status", () => {
@@ -54,7 +61,7 @@ describe("<TodoItem />", () => {
       },
     });
 
-    cy.get("[test-id='status-toggle']").check();
+    cy.get("[test-id='status-toggle']").click();
     cy.get("@onToggleSpy").should("have.been.calledOnce");
   });
 

@@ -1,11 +1,6 @@
 <template>
   <div class="todo-item" test-id="todo-item">
-    <input
-      type="checkbox"
-      test-id="status-toggle"
-      :checked="isDone"
-      @change="onToggleStatus"
-    />
+    <el-checkbox type="checkbox" test-id="status-toggle" v-model="model" />
     <span
       class="todo-label"
       test-id="todo-label"
@@ -29,12 +24,22 @@ export default defineComponent({
     },
   },
   methods: {
-    onToggleStatus(e: Event) {
-      this.$emit("toggle", (e.target as HTMLInputElement).checked);
-    },
     onDelete() {
       this.$emit("delete");
     },
+  },
+  computed: {
+    model: {
+      get(): boolean {
+        return this.isDone;
+      },
+      set(newValue: boolean) {
+        this.$emit("toggle", newValue);
+      },
+    },
+  },
+  mounted() {
+    console.log(111, this);
   },
 });
 </script>

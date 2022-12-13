@@ -7,8 +7,8 @@ describe("<TodoFilter />", () => {
   });
   it("should have default checked filter 'All'", () => {
     cy.mount(TodoFilter);
-    cy.get('[test-id="filter-item"][value="All"]').should("be.checked");
-    cy.get('[test-id="filter-item"][value="Active"]').should("not.be.checked");
-    cy.get('[test-id="filter-item"][value="Done"]').should("not.be.checked");
+    cy.contains("All").should("have.class", "is-checked");
+    cy.contains("Active").should("not.have.class", "is-checked");
+    cy.contains("Done").should("not.have.class", "is-checked");
   });
 });

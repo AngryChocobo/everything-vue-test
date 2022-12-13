@@ -1,16 +1,14 @@
 <template>
   <div>
-    <span v-for="filter in filters" :key="filter.id">
-      <input
-        type="radio"
+    <el-radio-group v-model="model">
+      <el-radio
+        v-for="filter in filters"
+        :key="filter.id"
+        :label="filter.label"
         test-id="filter-item"
-        name="filters"
-        v-model="model"
-        :value="filter.value"
-        :id="filter.id"
-      />
-      <label :for="filter.id">{{ filter.label }}</label>
-    </span>
+        >{{ filter.label }}</el-radio
+      >
+    </el-radio-group>
   </div>
 </template>
 
