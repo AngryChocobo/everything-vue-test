@@ -4,7 +4,9 @@
   "description": "everything I should know to test vue",
   "main": "index.js",
   "scripts": {
-    "test:unit": "turbo run test:unit"
+    "test:unit": "turbo run test:unit",
+    "build": "turbo run build",
+    "oldOrange": "turbo run oldOrange"
   },
   "keywords": [
     "vue",
