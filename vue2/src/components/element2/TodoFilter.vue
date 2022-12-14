@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { TodoFilterEnum } from "../types";
+import { TodoFilterEnum } from "../../type/types";
 
 export default defineComponent({
   props: {

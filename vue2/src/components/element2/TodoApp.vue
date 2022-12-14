@@ -22,7 +22,7 @@ import { defineComponent } from "vue";
 import TodoItem from "./TodoItem.vue";
 import TodoInput from "./TodoInput.vue";
 import TodoFilter from "./TodoFilter.vue";
-import { TodoFilterEnum, Todo } from "../types";
+import { TodoFilterEnum, Todo } from "../../type/types";
 
 const filters = {
   [TodoFilterEnum.All]: (todos: Todo[]) => todos,
