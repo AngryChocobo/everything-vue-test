@@ -13,10 +13,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import Vue, { PropType } from "vue";
 import { TodoFilterEnum } from "../../type/types";
 
-export default defineComponent({
+export default Vue.extend({
   props: {
     value: {
       type: String as PropType<TodoFilterEnum>,

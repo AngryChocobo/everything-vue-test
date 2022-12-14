@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import Vue from "vue";
 import TodoItem from "./TodoItem.vue";
 import TodoInput from "./TodoInput.vue";
 import TodoFilter from "./TodoFilter.vue";
@@ -30,7 +30,7 @@ const filters = {
   [TodoFilterEnum.Done]: (todos: Todo[]) => todos.filter((v) => v.isDone),
 };
 
-export default defineComponent({
+export default Vue.extend({
   data() {
     return {
       list: [
