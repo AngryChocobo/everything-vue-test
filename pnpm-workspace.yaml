@@ -1,3 +1,4 @@
 packages:
-  - "server/*"
-  - "vue2/*"
+  - "server/**"
+  - "vue2/**"
+  - "shared/**"
