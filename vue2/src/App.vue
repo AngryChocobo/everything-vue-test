@@ -10,13 +10,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import TodoApp from "@/components/vanilla/TodoApp.vue";
 
-export default Vue.extend({
-  components: {
-    TodoApp,
-  },
-});
+export default Vue.extend({});
 </script>
 
 <style lang="less">
