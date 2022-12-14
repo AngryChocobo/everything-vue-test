@@ -23,6 +23,7 @@ import TodoItem from "./TodoItem.vue";
 import TodoInput from "./TodoInput.vue";
 import TodoFilter from "./TodoFilter.vue";
 import { TodoFilterEnum, Todo } from "../../type/types";
+import { fetchTodoList } from "../../hook/useTodoList";
 
 const filters = {
   [TodoFilterEnum.All]: (todos: Todo[]) => todos,
@@ -33,16 +34,7 @@ const filters = {
 export default Vue.extend({
   data() {
     return {
-      list: [
-        {
-          label: "Eat breakfast",
-          isDone: true,
-        },
-        {
-          label: "Go to Work",
-          isDone: false,
-        },
-      ] as Todo[],
+      list: [] as Todo[],
       filter: TodoFilterEnum.All,
     };
   },
@@ -75,6 +67,9 @@ export default Vue.extend({
     displayList(): Todo[] {
       return filters[this.filter](this.list);
     },
+  },
+  async mounted() {
+    this.list = await fetchTodoList();
   },
 });
 </script>

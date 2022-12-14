@@ -16,32 +16,29 @@ const mockData = () => [
 ];
 
 describe("<TodoApp />", () => {
-  it("should render todolist", () => {
-    cy.mount(TodoApp, {
-      data() {
-        return { list: mockData() };
+  beforeEach(() => {
+    cy.intercept(
+      {
+        method: "GET",
+        url: "/todos",
       },
-    });
+      mockData()
+    ).as("getUsers");
+  });
+  it("should render todolist", () => {
+    cy.mount(TodoApp);
     cy.get('[test-id="todo-item"]').should("have.length", 3);
   });
 
   it("should remove deleted item", () => {
-    cy.mount(TodoApp, {
-      data() {
-        return { list: mockData() };
-      },
-    });
+    cy.mount(TodoApp);
     cy.get('[test-id="delete-btn"]').first().click();
     cy.get('[test-id="todo-item"]').should("have.length", 2);
     cy.get('[test-id="todo-app"]').should("not.contain.text", "Eat breakfast");
   });
 
   it("should add new one", () => {
-    cy.mount(TodoApp, {
-      data() {
-        return { list: mockData() };
-      },
-    });
+    cy.mount(TodoApp);
     cy.get('[test-id="todo-item"]').should("have.length", 3);
     cy.get('[test-id="todo-input"]').type("Hungry{enter}");
     cy.get('[test-id="todo-item"]').should("have.length", 4);
@@ -49,11 +46,7 @@ describe("<TodoApp />", () => {
   });
 
   it("should toggle status", () => {
-    cy.mount(TodoApp, {
-      data() {
-        return { list: mockData() };
-      },
-    });
+    cy.mount(TodoApp);
     cy.get('[test-id="todo-label"]').first().should("have.class", "done");
     cy.get('[test-id="todo-item"] [test-id="status-toggle"]').first().uncheck();
     cy.get('[test-id="todo-label"]').first().should("have.class", "todo");
@@ -62,7 +55,7 @@ describe("<TodoApp />", () => {
   it("should apply status filter", () => {
     cy.mount(TodoApp, {
       data() {
-        return { list: mockData(), filter: "All" };
+        return { filter: "All" };
       },
     });
     cy.get('[test-id="todo-item"]').should("have.length", mockData().length);
