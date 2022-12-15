@@ -17,7 +17,6 @@
   "author": "AngryChocobo <1347237169@qq.com>",
   "license": "ISC",
   "devDependencies": {
-    "rimraf": "^3.0.2",
     "turbo": "^1.6.3"
   }
 }
