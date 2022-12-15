@@ -8,9 +8,12 @@
     "/dist"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "rimraf ./build && tsc"
   },
   "keywords": [],
   "author": "AngryChocobo <1347237169@qq.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "rimraf": "workspace:*"
+  }
 }
