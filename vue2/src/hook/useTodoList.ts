@@ -1,6 +1,6 @@
-import { ref, Ref } from "vue";
 import { useState } from "./useState";
-import { TodoFilterEnum, Todo } from "../type/types";
+import { Todo } from "shared";
+
 import axios from "axios";
 
 export function useTodoList() {
@@ -11,7 +11,7 @@ export function useTodoList() {
   };
 }
 
-export async function fetchTodoList() {
+export async function fetchTodoList(): Promise<Todo[]> {
   const res = await axios.get("http://localhost:3000/todos");
   return res.data;
 }

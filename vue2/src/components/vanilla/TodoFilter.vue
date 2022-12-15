@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from "vue";
-import { TodoFilterEnum } from "../../type/types";
+import { TodoFilterEnum } from "shared";
 
 export default Vue.extend({
   props: {

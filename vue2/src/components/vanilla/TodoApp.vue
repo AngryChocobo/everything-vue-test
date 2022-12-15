@@ -22,7 +22,7 @@ import Vue from "vue";
 import TodoItem from "./TodoItem.vue";
 import TodoInput from "./TodoInput.vue";
 import TodoFilter from "./TodoFilter.vue";
-import { TodoFilterEnum, Todo } from "../../type/types";
+import { TodoFilterEnum, Todo } from "shared";
 import { fetchTodoList } from "../../hook/useTodoList";
 
 const filters = {
