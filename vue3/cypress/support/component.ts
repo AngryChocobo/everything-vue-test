@@ -23,6 +23,9 @@ import "./commands";
 import "@/assets/main.css";
 
 import { mount } from "cypress/vue";
+// 改用按需加载就不需要手动配置plugin了
+// import Antdv from "ant-design-vue";
+// import "ant-design-vue/dist/antd.css";
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
@@ -37,7 +40,15 @@ declare global {
   }
 }
 
-Cypress.Commands.add("mount", mount);
+// Cypress.Commands.add("mount", mount);
+
+Cypress.Commands.add("mount", (component, args: any = {}) => {
+  args.global = args.global || {};
+  args.global.plugins = args.global.plugins || [];
+  // 改用按需加载就不需要手动配置plugin了
+  // args.global.plugins.push(Antdv);
+  return mount(component, args);
+});
 
 // Example use:
 // cy.mount(MyComponent)
