@@ -13,6 +13,9 @@ export default defineConfig({
       resolvers: [AntDesignVueResolver()],
     }),
   ],
+  server: {
+    port: 9999,
+  },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),

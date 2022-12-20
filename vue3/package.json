@@ -18,7 +18,8 @@
     "ant-design-vue": "^3.2.15",
     "pinia": "^2.0.28",
     "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "shared": "workspace:*"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
