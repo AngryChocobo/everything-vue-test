@@ -2,4 +2,5 @@ packages:
   - "server/**"
   - "vue2/**"
   - "vue3/**"
+  - "webcomponents/**"
   - "shared/**"
