@@ -1,10 +1,10 @@
 <template>
   <div>
-    <el-input
+    <a-input
       test-id="todo-input"
       placeholder="press enter add todo"
-      v-model="value"
-      @keyup.enter.native="onEnter"
+      v-model:value="value"
+      @pressEnter="onEnter"
     />
   </div>
 </template>

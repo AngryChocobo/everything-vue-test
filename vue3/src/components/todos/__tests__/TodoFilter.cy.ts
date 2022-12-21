@@ -7,8 +7,17 @@ describe("<TodoFilter />", () => {
   });
   it("should have default checked filter 'All'", () => {
     cy.mount(TodoFilter);
-    cy.contains("All").should("have.class", "is-checked");
-    cy.contains("Active").should("not.have.class", "is-checked");
-    cy.contains("Done").should("not.have.class", "is-checked");
+    cy.get('[test-data="All"]').should(
+      "have.class",
+      "ant-radio-wrapper-checked"
+    );
+    cy.get('[test-data="Active"]').should(
+      "not.have.class",
+      "ant-radio-wrapper-checked"
+    );
+    cy.get('[test-data="Done"]').should(
+      "not.have.class",
+      "ant-radio-wrapper-checked"
+    );
   });
 });

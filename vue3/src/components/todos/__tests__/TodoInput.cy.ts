@@ -18,8 +18,8 @@ describe("<TodoInput />", () => {
   it("should add a new todo when press enter", () => {
     const onAddSpy = cy.spy().as("onAddSpy");
     cy.mount(TodoInput, {
-      listeners: {
-        add: onAddSpy,
+      props: {
+        onAdd: onAddSpy,
       },
     });
     cy.get('[test-id="todo-input"]').type("饿了{enter}");
@@ -28,8 +28,8 @@ describe("<TodoInput />", () => {
   it("should NOT add a empty todo", () => {
     const onAddSpy = cy.spy().as("onAddSpy");
     cy.mount(TodoInput, {
-      listeners: {
-        add: onAddSpy,
+      props: {
+        onAdd: onAddSpy,
       },
     });
     cy.get('[test-id="todo-input"]').type("{enter}");

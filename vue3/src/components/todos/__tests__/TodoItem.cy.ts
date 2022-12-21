@@ -9,7 +9,9 @@ describe("element2 <TodoItem />", () => {
       },
     });
 
-    cy.get("[test-id='status-toggle']").should("have.class", "is-checked");
+    cy.get("[data-cy='status-toggle']")
+      .parent()
+      .should("have.class", "ant-checkbox-checked");
     cy.get("[test-id='todo-label']").should("contain.text", "吃饭");
     cy.get("[test-id='todo-label']").should("have.class", "done");
     cy.get("[test-id='todo-label']").should("not.have.class", "todo");
@@ -23,7 +25,9 @@ describe("element2 <TodoItem />", () => {
       },
     });
 
-    cy.get("[test-id='status-toggle']").should("not.have.class", "is-checked");
+    cy.get("[data-cy='status-toggle']")
+      .parent()
+      .should("not.have.class", "ant-checkbox-checked");
     cy.get("[test-id='todo-label']").should("contain.text", "下班");
     cy.get("[test-id='todo-label']").should("not.have.class", "done");
     cy.get("[test-id='todo-label']").should("have.class", "todo");
@@ -39,29 +43,32 @@ describe("element2 <TodoItem />", () => {
       return cy.wrap(wrapper).as("vue");
     });
 
-    cy.get("[test-id='status-toggle']").should("not.have.class", "is-checked");
-    cy.get("[test-id='status-toggle']").click();
+    cy.get("[data-cy='status-toggle']")
+
+      .parent()
+      .should("not.have.class", "ant-checkbox-checked");
+    cy.get("[data-cy='status-toggle']").click();
     cy.get("@vue").then((current: any) => {
       current.setProps({
         isDone: true,
       });
     });
-    cy.get("[test-id='status-toggle']").should("have.class", "is-checked");
+    cy.get("[data-cy='status-toggle']")
+      .parent()
+      .should("have.class", "ant-checkbox-checked");
   });
 
   it("should emit event when toggle status", () => {
     const onToggleSpy = cy.spy().as("onToggleSpy");
     cy.mount(TodoItem, {
-      propsData: {
+      props: {
+        onToggle: onToggleSpy,
         label: "下班",
         isDone: false,
       },
-      listeners: {
-        toggle: onToggleSpy,
-      },
     });
 
-    cy.get("[test-id='status-toggle']").click();
+    cy.get("[data-cy='status-toggle']").click();
     cy.get("@onToggleSpy").should("have.been.calledOnce");
   });
 
@@ -78,12 +85,10 @@ describe("element2 <TodoItem />", () => {
   it("should emit delete event when click delete btn", () => {
     const onDeleteSpy = cy.spy().as("onDeleteSpy");
     cy.mount(TodoItem, {
-      propsData: {
+      props: {
+        onDelete: onDeleteSpy,
         label: "下班",
         isDone: false,
-      },
-      listeners: {
-        delete: onDeleteSpy,
       },
     });
     cy.get("[test-id='delete-btn']").click();

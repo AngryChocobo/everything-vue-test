@@ -48,7 +48,7 @@ describe("<TodoApp />", () => {
   it("should toggle status", () => {
     cy.mount(TodoApp);
     cy.get('[test-id="todo-label"]').first().should("have.class", "done");
-    cy.get('[test-id="status-toggle"]').first().click();
+    cy.get('[data-cy="status-toggle"]').first().click();
     cy.get('[test-id="todo-label"]').first().should("have.class", "todo");
   });
 
@@ -59,7 +59,8 @@ describe("<TodoApp />", () => {
       },
     });
     cy.get('[test-id="todo-item"]').should("have.length", mockData().length);
-    cy.get('[test-id="filter-item"]').contains("Active").click();
+    cy.get('[test-id="filter-item"] input[value="Active"]').check();
+    // cy.get('[test-id="filter-item"][test-data="Active"]').click();
     cy.get('[test-id="todo-item"]').should("have.length", 2);
     cy.get('[test-id="filter-item"]').contains("Done").click();
     cy.get('[test-id="todo-item"]').should("have.length", 1);

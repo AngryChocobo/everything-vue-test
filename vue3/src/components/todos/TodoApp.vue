@@ -13,7 +13,7 @@
       {{ item }}
     </TodoItem>
     <TodoInput @add="handleAdd" class="todo-input" />
-    <TodoFilter :filter="filter" @change="handleChangeFilter" />
+    <TodoFilter :filter="filter" @toggle="handleChangeFilter" />
   </div>
 </template>
 
@@ -39,6 +39,8 @@ const displayList = computed(() => {
 });
 onMounted(async () => {
   list.value = await fetchTodoList();
+
+  console.log(123, filter.value);
 });
 
 function handleDelete(item: Todo) {

@@ -1,14 +1,15 @@
 <template>
   <div>
-    <el-radio-group v-model="model">
-      <el-radio
+    <a-radio-group v-model:value="model">
+      <a-radio
         v-for="filter in filters"
         :key="filter.id"
-        :label="filter.label"
+        :value="filter.label"
         test-id="filter-item"
-        >{{ filter.label }}</el-radio
+        :test-data="filter.label"
+        >{{ filter.label }}</a-radio
       >
-    </el-radio-group>
+    </a-radio-group>
   </div>
 </template>
 
@@ -19,7 +20,7 @@ import { TodoFilterEnum } from "shared";
 
 export default defineComponent({
   props: {
-    value: {
+    filter: {
       type: String as PropType<TodoFilterEnum>,
       default: TodoFilterEnum.All,
     },
@@ -49,10 +50,10 @@ export default defineComponent({
   computed: {
     model: {
       get(): TodoFilterEnum {
-        return this.value;
+        return this.filter;
       },
       set(newValue: TodoFilterEnum) {
-        this.$emit("change", newValue);
+        this.$emit("toggle", newValue);
       },
     },
   },

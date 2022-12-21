@@ -1,6 +1,10 @@
 <template>
   <div class="todo-item" test-id="todo-item">
-    <el-checkbox type="checkbox" test-id="status-toggle" v-model="model" />
+    <a-checkbox
+      type="checkbox"
+      data-cy="status-toggle"
+      v-model:checked="model"
+    />
     <span
       class="todo-label"
       test-id="todo-label"
@@ -8,7 +12,7 @@
     >
       {{ label }}
     </span>
-    <el-button test-id="delete-btn" @click="onDelete">delete</el-button>
+    <a-button test-id="delete-btn" @click="onDelete">delete</a-button>
   </div>
 </template>
 

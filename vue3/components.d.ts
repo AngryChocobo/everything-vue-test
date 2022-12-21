@@ -8,6 +8,10 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AButton: typeof import('ant-design-vue/es')['Button']
+    ACheckbox: typeof import('ant-design-vue/es')['Checkbox']
+    AInput: typeof import('ant-design-vue/es')['Input']
+    ARadio: typeof import('ant-design-vue/es')['Radio']
+    ARadioGroup: typeof import('ant-design-vue/es')['RadioGroup']
     copy: typeof import('./src/components/todos/TodoApp copy.vue')['default']
     Fuck: typeof import('./src/components/todos/Fuck.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
