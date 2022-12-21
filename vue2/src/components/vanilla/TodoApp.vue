@@ -13,7 +13,7 @@
       {{ item }}
     </TodoItem>
     <TodoInput @add="handleAdd" class="todo-input" />
-    <TodoFilter :filter="filter" @change="handleChangeFilter" />
+    <TodoFilter :filter="filter" @toggle="handleChangeFilter" />
   </div>
 </template>
 

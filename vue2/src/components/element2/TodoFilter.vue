@@ -18,7 +18,7 @@ import { TodoFilterEnum } from "shared";
 
 export default Vue.extend({
   props: {
-    value: {
+    filter: {
       type: String as PropType<TodoFilterEnum>,
       default: TodoFilterEnum.All,
     },
@@ -48,10 +48,10 @@ export default Vue.extend({
   computed: {
     model: {
       get(): TodoFilterEnum {
-        return this.value;
+        return this.filter;
       },
       set(newValue: TodoFilterEnum) {
-        this.$emit("change", newValue);
+        this.$emit("toggle", newValue);
       },
     },
   },
