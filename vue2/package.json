@@ -5,9 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "cypress run --component",
     "lint": "vue-cli-service lint",
-    "open:cypress": "npx cypress open",
+    "test:unit": "cypress run --component",
+    "test:unit:dev": "cypress open --component",
     "oldOrange": "echo 123"
   },
   "dependencies": {
