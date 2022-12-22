@@ -9,10 +9,10 @@ describe("element2 <TodoItem />", () => {
       },
     });
 
-    cy.get("[test-id='status-toggle']").should("have.class", "is-checked");
-    cy.get("[test-id='todo-label']").should("contain.text", "吃饭");
-    cy.get("[test-id='todo-label']").should("have.class", "done");
-    cy.get("[test-id='todo-label']").should("not.have.class", "todo");
+    cy.get("[data-cy='status-toggle']").should("have.class", "is-checked");
+    cy.get("[data-cy='todo-label']").should("contain.text", "吃饭");
+    cy.get("[data-cy='todo-label']").should("have.class", "done");
+    cy.get("[data-cy='todo-label']").should("not.have.class", "todo");
   });
 
   it("should render todo", () => {
@@ -23,10 +23,10 @@ describe("element2 <TodoItem />", () => {
       },
     });
 
-    cy.get("[test-id='status-toggle']").should("not.have.class", "is-checked");
-    cy.get("[test-id='todo-label']").should("contain.text", "下班");
-    cy.get("[test-id='todo-label']").should("not.have.class", "done");
-    cy.get("[test-id='todo-label']").should("have.class", "todo");
+    cy.get("[data-cy='status-toggle']").should("not.have.class", "is-checked");
+    cy.get("[data-cy='todo-label']").should("contain.text", "下班");
+    cy.get("[data-cy='todo-label']").should("not.have.class", "done");
+    cy.get("[data-cy='todo-label']").should("have.class", "todo");
   });
 
   it("should toggle status when click checkbox", () => {
@@ -39,14 +39,14 @@ describe("element2 <TodoItem />", () => {
       return cy.wrap(wrapper).as("vue");
     });
 
-    cy.get("[test-id='status-toggle']").should("not.have.class", "is-checked");
-    cy.get("[test-id='status-toggle']").click();
+    cy.get("[data-cy='status-toggle']").should("not.have.class", "is-checked");
+    cy.get("[data-cy='status-toggle']").click();
     cy.get("@vue").then((current: any) => {
       current.setProps({
         isDone: true,
       });
     });
-    cy.get("[test-id='status-toggle']").should("have.class", "is-checked");
+    cy.get("[data-cy='status-toggle']").should("have.class", "is-checked");
   });
 
   it("should emit event when toggle status", () => {
@@ -61,7 +61,7 @@ describe("element2 <TodoItem />", () => {
       },
     });
 
-    cy.get("[test-id='status-toggle']").click();
+    cy.get("[data-cy='status-toggle']").click();
     cy.get("@onToggleSpy").should("have.been.calledOnce");
   });
 
@@ -72,7 +72,7 @@ describe("element2 <TodoItem />", () => {
         isDone: false,
       },
     });
-    cy.get("[test-id='delete-btn']").should("exist");
+    cy.get("[data-cy='delete-btn']").should("exist");
   });
 
   it("should emit delete event when click delete btn", () => {
@@ -86,7 +86,7 @@ describe("element2 <TodoItem />", () => {
         delete: onDeleteSpy,
       },
     });
-    cy.get("[test-id='delete-btn']").click();
+    cy.get("[data-cy='delete-btn']").click();
     cy.get("@onDeleteSpy").should("have.been.calledOnce");
   });
 });

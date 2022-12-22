@@ -5,8 +5,8 @@
         v-for="filter in filters"
         :key="filter.id"
         :value="filter.label"
-        test-id="filter-item"
-        :test-data="filter.label"
+        data-cy="filter-item"
+        :data-cy-data="filter.label"
         >{{ filter.label }}</a-radio
       >
     </a-radio-group>

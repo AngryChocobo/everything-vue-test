@@ -1,14 +1,14 @@
 <template>
-  <div class="todo-item" test-id="todo-item">
-    <el-checkbox type="checkbox" test-id="status-toggle" v-model="model" />
+  <div class="todo-item" data-cy="todo-item">
+    <el-checkbox type="checkbox" data-cy="status-toggle" v-model="model" />
     <span
       class="todo-label"
-      test-id="todo-label"
+      data-cy="todo-label"
       :class="isDone ? 'done' : 'todo'"
     >
       {{ label }}
     </span>
-    <el-button test-id="delete-btn" @click="onDelete">delete</el-button>
+    <el-button data-cy="delete-btn" @click="onDelete">delete</el-button>
   </div>
 </template>
 

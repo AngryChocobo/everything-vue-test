@@ -2,7 +2,7 @@
   <div>
     <input
       type="text"
-      test-id="todo-input"
+      data-cy="todo-input"
       placeholder="press enter add todo"
       v-model="value"
       @keyup.enter="onEnter"

@@ -3,8 +3,8 @@ import TodoInput from "./TodoInput.vue";
 describe("<TodoInput />", () => {
   it("renders", () => {
     cy.mount(TodoInput);
-    cy.get('[test-id="todo-input"]').should("exist");
-    cy.get('[test-id="todo-input"]').should(
+    cy.get('[data-cy="todo-input"]').should("exist");
+    cy.get('[data-cy="todo-input"]').should(
       "have.attr",
       "placeholder",
       "press enter add todo"
@@ -12,8 +12,8 @@ describe("<TodoInput />", () => {
   });
   it("should input", () => {
     cy.mount(TodoInput);
-    cy.get('[test-id="todo-input"]').type("饿了");
-    cy.get('[test-id="todo-input"]').should("have.value", "饿了");
+    cy.get('[data-cy="todo-input"]').type("饿了");
+    cy.get('[data-cy="todo-input"]').should("have.value", "饿了");
   });
   it("should add a new todo when press enter", () => {
     const onAddSpy = cy.spy().as("onAddSpy");
@@ -22,7 +22,7 @@ describe("<TodoInput />", () => {
         add: onAddSpy,
       },
     });
-    cy.get('[test-id="todo-input"]').type("饿了{enter}");
+    cy.get('[data-cy="todo-input"]').type("饿了{enter}");
     cy.get("@onAddSpy").should("have.been.calledOnce");
   });
   it("should NOT add a empty todo", () => {
@@ -32,12 +32,12 @@ describe("<TodoInput />", () => {
         add: onAddSpy,
       },
     });
-    cy.get('[test-id="todo-input"]').type("{enter}");
+    cy.get('[data-cy="todo-input"]').type("{enter}");
     cy.get("@onAddSpy").should("not.have.been.called");
   });
   it("should clear input after add new todo", () => {
     cy.mount(TodoInput);
-    cy.get('[test-id="todo-input"]').type("饿了{enter}");
-    cy.get('[test-id="todo-input"]').should("have.value", "");
+    cy.get('[data-cy="todo-input"]').type("饿了{enter}");
+    cy.get('[data-cy="todo-input"]').should("have.value", "");
   });
 });

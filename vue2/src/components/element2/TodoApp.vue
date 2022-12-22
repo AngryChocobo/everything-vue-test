@@ -1,5 +1,5 @@
 <template>
-  <div test-id="todo-app" id="todo-app-element2">
+  <div data-cy="todo-app" id="todo-app-element2">
     <h1>Element2 TodoApp</h1>
     <TodoItem
       v-for="item in displayList"

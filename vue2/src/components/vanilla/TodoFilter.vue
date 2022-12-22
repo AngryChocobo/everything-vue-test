@@ -3,7 +3,7 @@
     <span v-for="filter in filters" :key="filter.id">
       <input
         type="radio"
-        test-id="filter-item"
+        data-cy="filter-item"
         name="filters"
         v-model="model"
         :value="filter.value"

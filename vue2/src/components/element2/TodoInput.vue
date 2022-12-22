@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-input
-      test-id="todo-input"
+      data-cy="todo-input"
       placeholder="press enter add todo"
       v-model="value"
       @keyup.enter.native="onEnter"

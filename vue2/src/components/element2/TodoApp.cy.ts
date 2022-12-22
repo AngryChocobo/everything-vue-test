@@ -27,29 +27,29 @@ describe("<TodoApp />", () => {
   });
   it("should render todolist", () => {
     cy.mount(TodoApp);
-    cy.get('[test-id="todo-item"]').should("have.length", 3);
+    cy.get('[data-cy="todo-item"]').should("have.length", 3);
   });
 
   it("should remove deleted item", () => {
     cy.mount(TodoApp);
-    cy.get('[test-id="delete-btn"]').first().click();
-    cy.get('[test-id="todo-item"]').should("have.length", 2);
-    cy.get('[test-id="todo-app"]').should("not.contain.text", "Eat breakfast");
+    cy.get('[data-cy="delete-btn"]').first().click();
+    cy.get('[data-cy="todo-item"]').should("have.length", 2);
+    cy.get('[data-cy="todo-app"]').should("not.contain.text", "Eat breakfast");
   });
 
   it("should add new one", () => {
     cy.mount(TodoApp);
-    cy.get('[test-id="todo-item"]').should("have.length", 3);
-    cy.get('[test-id="todo-input"]').type("Hungry{enter}");
-    cy.get('[test-id="todo-item"]').should("have.length", 4);
-    cy.get('[test-id="todo-app"]').should("contain.text", "Hungry");
+    cy.get('[data-cy="todo-item"]').should("have.length", 3);
+    cy.get('[data-cy="todo-input"]').type("Hungry{enter}");
+    cy.get('[data-cy="todo-item"]').should("have.length", 4);
+    cy.get('[data-cy="todo-app"]').should("contain.text", "Hungry");
   });
 
   it("should toggle status", () => {
     cy.mount(TodoApp);
-    cy.get('[test-id="todo-label"]').first().should("have.class", "done");
-    cy.get('[test-id="status-toggle"]').first().click();
-    cy.get('[test-id="todo-label"]').first().should("have.class", "todo");
+    cy.get('[data-cy="todo-label"]').first().should("have.class", "done");
+    cy.get('[data-cy="status-toggle"]').first().click();
+    cy.get('[data-cy="todo-label"]').first().should("have.class", "todo");
   });
 
   it("should apply status filter", () => {
@@ -58,10 +58,10 @@ describe("<TodoApp />", () => {
         return { list: mockData(), filter: "All" };
       },
     });
-    cy.get('[test-id="todo-item"]').should("have.length", mockData().length);
-    cy.get('[test-id="filter-item"]').contains("Active").click();
-    cy.get('[test-id="todo-item"]').should("have.length", 2);
-    cy.get('[test-id="filter-item"]').contains("Done").click();
-    cy.get('[test-id="todo-item"]').should("have.length", 1);
+    cy.get('[data-cy="todo-item"]').should("have.length", mockData().length);
+    cy.get('[data-cy="filter-item"]').contains("Active").click();
+    cy.get('[data-cy="todo-item"]').should("have.length", 2);
+    cy.get('[data-cy="filter-item"]').contains("Done").click();
+    cy.get('[data-cy="todo-item"]').should("have.length", 1);
   });
 });

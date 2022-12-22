@@ -1,5 +1,5 @@
 <template>
-  <div class="todo-item" test-id="todo-item">
+  <div class="todo-item" data-cy="todo-item">
     <a-checkbox
       type="checkbox"
       data-cy="status-toggle"
@@ -7,12 +7,12 @@
     />
     <span
       class="todo-label"
-      test-id="todo-label"
+      data-cy="todo-label"
       :class="isDone ? 'done' : 'todo'"
     >
       {{ label }}
     </span>
-    <a-button test-id="delete-btn" @click="onDelete">delete</a-button>
+    <a-button data-cy="delete-btn" @click="onDelete">delete</a-button>
   </div>
 </template>
 
