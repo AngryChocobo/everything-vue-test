@@ -2,7 +2,7 @@
   <div>
     <a-radio-group v-model:value="model">
       <a-radio
-        v-for="filter in filters"
+        v-for="filter in FILTERS"
         :key="filter.id"
         :value="filter.label"
         data-cy="filter-item"
@@ -16,7 +16,7 @@
 <script lang="ts" setup>
 import { computed } from "vue";
 import type { PropType } from "vue";
-import { TodoFilterEnum } from "shared";
+import { TodoFilterEnum, FILTERS } from "shared";
 
 const props = defineProps({
   filter: {
@@ -29,24 +29,6 @@ const emit = defineEmits<{
   (e: "toggle", value: TodoFilterEnum): void;
 }>();
 
-// TODO refactor: move this to shared
-const filters = [
-  {
-    id: "filter-All",
-    value: TodoFilterEnum.All,
-    label: "All",
-  },
-  {
-    id: "filter-Active",
-    value: TodoFilterEnum.Active,
-    label: "Active",
-  },
-  {
-    id: "filter-Done",
-    value: TodoFilterEnum.Done,
-    label: "Done",
-  },
-];
 const model = computed({
   get(): TodoFilterEnum {
     return props.filter;

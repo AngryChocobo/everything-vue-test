@@ -14,3 +14,20 @@ export class Todo {
     this.isDone = args?.isDone ?? false;
   }
 }
+export const FILTERS = [
+  {
+    id: "filter-All",
+    value: TodoFilterEnum.All,
+    label: "All",
+  },
+  {
+    id: "filter-Active",
+    value: TodoFilterEnum.Active,
+    label: "Active",
+  },
+  {
+    id: "filter-Done",
+    value: TodoFilterEnum.Done,
+    label: "Done",
+  },
+] as const;

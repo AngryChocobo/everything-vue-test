@@ -39,8 +39,6 @@ const displayList = computed(() => {
 });
 onMounted(async () => {
   list.value = await fetchTodoList();
-
-  console.log(123, filter.value);
 });
 
 function handleDelete(item: Todo) {
