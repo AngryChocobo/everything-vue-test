@@ -13,49 +13,46 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { computed } from "vue";
 import type { PropType } from "vue";
 import { TodoFilterEnum } from "shared";
 
-export default defineComponent({
-  props: {
-    filter: {
-      type: String as PropType<TodoFilterEnum>,
-      default: TodoFilterEnum.All,
-    },
+const props = defineProps({
+  filter: {
+    type: String as PropType<TodoFilterEnum>,
+    default: TodoFilterEnum.All,
   },
-  data() {
-    return {
-      TodoFilterEnum,
-      filters: [
-        {
-          id: "filter-All",
-          value: TodoFilterEnum.All,
-          label: "All",
-        },
-        {
-          id: "filter-Active",
-          value: TodoFilterEnum.Active,
-          label: "Active",
-        },
-        {
-          id: "filter-Done",
-          value: TodoFilterEnum.Done,
-          label: "Done",
-        },
-      ],
-    };
+});
+
+const emit = defineEmits<{
+  (e: "toggle", value: TodoFilterEnum): void;
+}>();
+
+// TODO refactor: move this to shared
+const filters = [
+  {
+    id: "filter-All",
+    value: TodoFilterEnum.All,
+    label: "All",
   },
-  computed: {
-    model: {
-      get(): TodoFilterEnum {
-        return this.filter;
-      },
-      set(newValue: TodoFilterEnum) {
-        this.$emit("toggle", newValue);
-      },
-    },
+  {
+    id: "filter-Active",
+    value: TodoFilterEnum.Active,
+    label: "Active",
+  },
+  {
+    id: "filter-Done",
+    value: TodoFilterEnum.Done,
+    label: "Done",
+  },
+];
+const model = computed({
+  get(): TodoFilterEnum {
+    return props.filter;
+  },
+  set(newValue: TodoFilterEnum) {
+    emit("toggle", newValue);
   },
 });
 </script>

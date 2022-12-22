@@ -16,32 +16,33 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { computed } from "vue";
 
-export default defineComponent({
-  props: {
-    label: {
-      type: String,
-    },
-    isDone: {
-      type: Boolean,
-    },
+const props = defineProps({
+  label: {
+    type: String,
   },
-  methods: {
-    onDelete() {
-      this.$emit("delete");
-    },
+  isDone: {
+    type: Boolean,
   },
-  computed: {
-    model: {
-      get(): boolean {
-        return this.isDone;
-      },
-      set(newValue: boolean) {
-        this.$emit("toggle", newValue);
-      },
-    },
+});
+
+const emit = defineEmits<{
+  (e: "delete"): void;
+  (e: "toggle", v: boolean): void;
+}>();
+
+function onDelete() {
+  emit("delete");
+}
+
+const model = computed({
+  get(): boolean {
+    return props.isDone;
+  },
+  set(newValue: boolean) {
+    emit("toggle", newValue);
   },
 });
 </script>
