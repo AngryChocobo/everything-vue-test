@@ -1,12 +1,12 @@
+import { createVNode } from "vue";
 import TodoItem from "../TodoItem.vue";
+import "@/defineCustomElements";
 
-describe("element2 <TodoItem />", () => {
+describe("webcomponent <todo-item />", () => {
   it("should render done", () => {
-    cy.mount(TodoItem, {
-      propsData: {
-        label: "吃饭",
-        isDone: true,
-      },
+    cy.mount(createVNode("todo-item"), {
+      label: "吃饭",
+      isDone: true,
     });
 
     cy.get("[data-cy='status-toggle']")

@@ -1,6 +1,6 @@
 import TodoItem from "../TodoItem.vue";
 
-describe("element2 <TodoItem />", () => {
+describe("antdv <TodoItem />", () => {
   it("should render done", () => {
     cy.mount(TodoItem, {
       propsData: {
