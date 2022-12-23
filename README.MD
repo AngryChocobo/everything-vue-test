@@ -19,12 +19,14 @@
 - [x] vue3 + ant-design-vue
 - [x] mock API
 - [x] web components
+- [ ] vuex
 
 ## E2E Test Works
 
 - [ ] vue2 vanilla
 - [ ] vue2 + elementUI
 - [ ] vue3 + ant-design-vue
+- [ ] vue-router
 
 ## Test Case Refactor
 
