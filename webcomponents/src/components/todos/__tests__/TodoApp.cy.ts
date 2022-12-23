@@ -1,4 +1,5 @@
-import TodoApp from "../TodoApp.vue";
+import { createVNode, defineComponent } from "vue";
+import "@/defineCustomElements";
 
 const mockData = () => [
   {
@@ -26,43 +27,98 @@ describe("<TodoApp />", () => {
     ).as("getUsers");
   });
   it("should render todolist", () => {
-    cy.mount(TodoApp);
-    cy.get('[data-cy="todo-item"]').should("have.length", 3);
+    const Comp = defineComponent({
+      setup() {
+        return () => createVNode("todo-app");
+      },
+    });
+    cy.mount(Comp);
+    cy.get("todo-app").shadow().as("shadowRoot");
+
+    cy.get("@shadowRoot")
+      .find('[data-cy="todo-item"]')
+      .should("have.length", 3);
   });
 
   it("should remove deleted item", () => {
-    cy.mount(TodoApp);
-    cy.get('[data-cy="delete-btn"]').first().click();
-    cy.get('[data-cy="todo-item"]').should("have.length", 2);
-    cy.get('[data-cy="todo-app"]').should("not.contain.text", "Eat breakfast");
+    const Comp = defineComponent({
+      setup() {
+        return () => createVNode("todo-app");
+      },
+    });
+    cy.mount(Comp);
+    cy.get("todo-app").shadow().as("shadowRoot");
+    cy.get("@shadowRoot").find('[data-cy="delete-btn"]').first().click();
+    cy.get("@shadowRoot")
+      .find('[data-cy="todo-item"]')
+      .should("have.length", 2);
+    cy.get("@shadowRoot")
+      .find('[data-cy="todo-app"]')
+      .should("not.contain.text", "Eat breakfast");
   });
 
   it("should add new one", () => {
-    cy.mount(TodoApp);
-    cy.get('[data-cy="todo-item"]').should("have.length", 3);
-    cy.get('[data-cy="todo-input"]').type("Hungry{enter}");
-    cy.get('[data-cy="todo-item"]').should("have.length", 4);
-    cy.get('[data-cy="todo-app"]').should("contain.text", "Hungry");
+    const Comp = defineComponent({
+      setup() {
+        return () => createVNode("todo-app");
+      },
+    });
+    cy.mount(Comp);
+    cy.get("todo-app").shadow().as("shadowRoot");
+    cy.get("@shadowRoot")
+      .find('[data-cy="todo-item"]')
+      .should("have.length", 3);
+    cy.get("@shadowRoot").find('[data-cy="todo-input"]').type("Hungry{enter}");
+    cy.get("@shadowRoot")
+      .find('[data-cy="todo-item"]')
+      .should("have.length", 4);
+    cy.get("@shadowRoot")
+      .find('[data-cy="todo-app"]')
+      .should("contain.text", "Hungry");
   });
 
   it("should toggle status", () => {
-    cy.mount(TodoApp);
-    cy.get('[data-cy="todo-label"]').first().should("have.class", "done");
-    cy.get('[data-cy="status-toggle"]').first().click();
-    cy.get('[data-cy="todo-label"]').first().should("have.class", "todo");
+    const Comp = defineComponent({
+      setup() {
+        return () => createVNode("todo-app");
+      },
+    });
+    cy.mount(Comp);
+    cy.get("todo-app").shadow().as("shadowRoot");
+    cy.get("@shadowRoot")
+      .find('[data-cy="todo-label"]')
+      .first()
+      .should("have.class", "done");
+    cy.get("@shadowRoot").find('[data-cy="status-toggle"]').first().click();
+    cy.get("@shadowRoot")
+      .find('[data-cy="todo-label"]')
+      .first()
+      .should("have.class", "todo");
   });
 
   it("should apply status filter", () => {
-    cy.mount(TodoApp, {
-      data() {
-        return { list: mockData(), filter: "All" };
+    const Comp = defineComponent({
+      setup() {
+        return () => createVNode("todo-app", {});
       },
     });
-    cy.get('[data-cy="todo-item"]').should("have.length", mockData().length);
-    cy.get('[data-cy="filter-item"] input[value="Active"]').check();
-    // cy.get('[data-cy="filter-item"][data-cy-data="Active"]').click();
-    cy.get('[data-cy="todo-item"]').should("have.length", 2);
-    cy.get('[data-cy="filter-item"]').contains("Done").click();
-    cy.get('[data-cy="todo-item"]').should("have.length", 1);
+    cy.mount(Comp);
+    cy.get("todo-app").shadow().as("shadowRoot");
+    cy.get("@shadowRoot")
+      .find('[data-cy="todo-item"]')
+      .should("have.length", mockData().length);
+    cy.get("@shadowRoot")
+      .find('[data-cy="filter-item"] input[value="Active"]')
+      .check();
+    cy.get("@shadowRoot")
+      .find('[data-cy="todo-item"]')
+      .should("have.length", 2);
+    cy.get("@shadowRoot")
+      .find('[data-cy="filter-item"]')
+      .contains("Done")
+      .click();
+    cy.get("@shadowRoot")
+      .find('[data-cy="todo-item"]')
+      .should("have.length", 1);
   });
 });

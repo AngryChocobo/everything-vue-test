@@ -8,6 +8,9 @@ import "./assets/main.css";
 // import Antdv from "ant-design-vue";
 // import "ant-design-vue/dist/antd.css";
 
+// register webcomponents
+import "./defineCustomElements";
+
 const app = createApp(App);
 
 // app.use(Antdv);

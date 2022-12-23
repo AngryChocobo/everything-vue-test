@@ -1,23 +1,36 @@
-import TodoFilter from "../TodoFilter.vue";
+import { createVNode, defineComponent } from "vue";
+import "@/defineCustomElements";
 
-describe("<TodoFilter />", () => {
+describe("webcomponent <TodoFilter />", () => {
   it("should have three filters", () => {
-    cy.mount(TodoFilter);
-    cy.get('[data-cy="filter-item"]').should("have.length", 3);
+    const Comp = defineComponent({
+      setup() {
+        return () => createVNode("todo-filter");
+      },
+    });
+    cy.mount(Comp);
+    cy.get("todo-filter").shadow().as("shadowRoot");
+
+    cy.get("@shadowRoot")
+      .find('[data-cy="filter-item"]')
+      .should("have.length", 3);
   });
   it("should have default checked filter 'All'", () => {
-    cy.mount(TodoFilter);
-    cy.get('[data-cy-data="All"]').should(
-      "have.class",
-      "ant-radio-wrapper-checked"
-    );
-    cy.get('[data-cy-data="Active"]').should(
-      "not.have.class",
-      "ant-radio-wrapper-checked"
-    );
-    cy.get('[data-cy-data="Done"]').should(
-      "not.have.class",
-      "ant-radio-wrapper-checked"
-    );
+    const Comp = defineComponent({
+      setup() {
+        return () => createVNode("todo-filter");
+      },
+    });
+    cy.mount(Comp);
+    cy.get("todo-filter").shadow().as("shadowRoot");
+    cy.get("@shadowRoot")
+      .find('[data-cy-data="All"]')
+      .should("have.class", "ant-radio-wrapper-checked");
+    cy.get("@shadowRoot")
+      .find('[data-cy-data="Active"]')
+      .should("not.have.class", "ant-radio-wrapper-checked");
+    cy.get("@shadowRoot")
+      .find('[data-cy-data="Done"]')
+      .should("not.have.class", "ant-radio-wrapper-checked");
   });
 });
