@@ -138,6 +138,7 @@ importers:
 
   vue3:
     specifiers:
+      '@pinia/testing': ^0.0.14
       '@rushstack/eslint-patch': ^1.1.4
       '@types/node': ^18.11.12
       '@vitejs/plugin-vue': ^4.0.0
@@ -162,6 +163,7 @@ importers:
       vue-router: ^4.1.6
       vue-tsc: ^1.0.12
     dependencies:
+      '@pinia/testing': registry.npmmirror.com/@pinia/testing/0.0.14_pinia@2.0.28+vue@3.2.45
       ant-design-vue: registry.npmmirror.com/ant-design-vue/3.2.15_vue@3.2.45
       axios: registry.npmmirror.com/axios/1.2.1
       pinia: registry.npmmirror.com/pinia/2.0.28_e7lp6ggkpgyi5vqd44m2kxvk6i
@@ -2979,6 +2981,21 @@ packages:
       node-fetch: registry.npmmirror.com/node-fetch/2.6.7
     transitivePeerDependencies:
       - encoding
+
+  registry.npmmirror.com/@pinia/testing/0.0.14_pinia@2.0.28+vue@3.2.45:
+    resolution: {integrity: sha512-ZmZwVNd/NnKYLIfjfuKl0zlJ3UdiXFpsHzSlL6wCeezSlyrqGMxsIQKv0J6fleu38gyCNTPBEipfxrt8V4+VIg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@pinia/testing/-/testing-0.0.14.tgz}
+    id: registry.npmmirror.com/@pinia/testing/0.0.14
+    name: '@pinia/testing'
+    version: 0.0.14
+    peerDependencies:
+      pinia: '>=2.0.19'
+    dependencies:
+      pinia: registry.npmmirror.com/pinia/2.0.28_e7lp6ggkpgyi5vqd44m2kxvk6i
+      vue-demi: registry.npmmirror.com/vue-demi/0.13.11_vue@3.2.45
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
 
   registry.npmmirror.com/@rollup/pluginutils/5.0.2:
     resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@rollup/pluginutils/-/pluginutils-5.0.2.tgz}

@@ -21,8 +21,10 @@ import "./commands";
 
 // Import global styles
 import "@/assets/main.css";
+import Antdv from "ant-design-vue";
 
 import { mount } from "cypress/vue";
+
 // 改用按需加载就不需要手动配置plugin了
 // import Antdv from "ant-design-vue";
 // import "ant-design-vue/dist/antd.css";
@@ -41,6 +43,9 @@ declare global {
 }
 
 // Cypress.Commands.add("mount", mount);
+
+import { createPinia, setActivePinia } from "pinia";
+setActivePinia(createPinia());
 
 Cypress.Commands.add("mount", (component, args: any = {}) => {
   args.global = args.global || {};

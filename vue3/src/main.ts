@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
+
 import "./assets/main.css";
 
 // 改用按需加载就不需要手动配置plugin了;

@@ -15,12 +15,13 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@pinia/testing": "^0.0.14",
     "ant-design-vue": "^3.2.15",
+    "axios": "^1.2.1",
     "pinia": "^2.0.28",
-    "vue": "^3.2.45",
-    "vue-router": "^4.1.6",
     "shared": "workspace:*",
-    "axios": "^1.2.1"
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
