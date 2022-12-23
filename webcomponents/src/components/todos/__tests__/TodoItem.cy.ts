@@ -1,7 +1,7 @@
 import { createVNode, defineComponent } from "vue";
 import "@/defineCustomElements";
 
-describe("webcomponent <todo-item />", () => {
+describe("Visual", () => {
   it("should render as webcomponent", () => {
     const Comp = defineComponent({
       setup() {
@@ -73,6 +73,23 @@ describe("webcomponent <todo-item />", () => {
       .should("have.class", "todo");
   });
 
+  it("should have a delete btn with label: delete", () => {
+    const Comp = defineComponent({
+      setup() {
+        return () =>
+          createVNode("todo-item", {
+            label: "下班",
+            isDone: false,
+          });
+      },
+    });
+    cy.mount(Comp);
+    cy.get("todo-item").shadow().as("shadowRoot");
+    cy.get("@shadowRoot").find("[data-cy='delete-btn']").should("exist");
+  });
+});
+
+describe("Behavioral", () => {
   it("should toggle status when click checkbox", () => {
     const Comp = defineComponent({
       setup() {
@@ -121,22 +138,6 @@ describe("webcomponent <todo-item />", () => {
     cy.get("todo-item").shadow().as("shadowRoot");
     cy.get("@shadowRoot").find("[data-cy='status-toggle']").click();
     cy.get("@onToggleSpy").should("have.been.calledOnce");
-  });
-
-  // todo 归类到 Behavioral and Visual
-  it("should have a delete btn with label: delete", () => {
-    const Comp = defineComponent({
-      setup() {
-        return () =>
-          createVNode("todo-item", {
-            label: "下班",
-            isDone: false,
-          });
-      },
-    });
-    cy.mount(Comp);
-    cy.get("todo-item").shadow().as("shadowRoot");
-    cy.get("@shadowRoot").find("[data-cy='delete-btn']").should("exist");
   });
 
   it("should emit delete event when click delete btn", () => {

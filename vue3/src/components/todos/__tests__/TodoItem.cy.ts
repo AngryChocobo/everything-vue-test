@@ -1,6 +1,6 @@
 import TodoItem from "../TodoItem.vue";
 
-describe("antdv <TodoItem />", () => {
+describe("Visual", () => {
   it("should render done", () => {
     cy.mount(TodoItem, {
       propsData: {
@@ -32,7 +32,9 @@ describe("antdv <TodoItem />", () => {
     cy.get("[data-cy='todo-label']").should("not.have.class", "done");
     cy.get("[data-cy='todo-label']").should("have.class", "todo");
   });
+});
 
+describe("Behavioral", () => {
   it("should toggle status when click checkbox", () => {
     cy.mount(TodoItem, {
       propsData: {

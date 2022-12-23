@@ -1,10 +1,12 @@
 import TodoFilter from "../TodoFilter.vue";
 
-describe("<TodoFilter />", () => {
+describe("Visual", () => {
   it("should have three filters", () => {
     cy.mount(TodoFilter);
     cy.get('[data-cy="filter-item"]').should("have.length", 3);
   });
+});
+describe("Behavioral", () => {
   it("should have default checked filter 'All'", () => {
     cy.mount(TodoFilter);
     cy.get('[data-cy-data="All"]').should(

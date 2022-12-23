@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem.vue";
 
-describe("Vanilla <TodoItem />", () => {
+describe("Visual", () => {
   it("should render done", () => {
     cy.mount(TodoItem, {
       propsData: {
@@ -28,7 +28,18 @@ describe("Vanilla <TodoItem />", () => {
     cy.get("[data-cy='todo-label']").should("not.have.class", "done");
     cy.get("[data-cy='todo-label']").should("have.class", "todo");
   });
+  it("should have a delete btn with label: delete", () => {
+    cy.mount(TodoItem, {
+      propsData: {
+        label: "下班",
+        isDone: false,
+      },
+    });
+    cy.get("[data-cy='delete-btn']").should("exist");
+  });
+});
 
+describe("Behavioral", () => {
   it.skip("should toggle status when click checkbox", () => {
     cy.mount(TodoItem, {
       propsData: {
@@ -56,16 +67,6 @@ describe("Vanilla <TodoItem />", () => {
 
     cy.get("[data-cy='status-toggle']").check();
     cy.get("@onToggleSpy").should("have.been.calledOnce");
-  });
-
-  it("should have a delete btn with label: delete", () => {
-    cy.mount(TodoItem, {
-      propsData: {
-        label: "下班",
-        isDone: false,
-      },
-    });
-    cy.get("[data-cy='delete-btn']").should("exist");
   });
 
   it("should emit delete event when click delete btn", () => {

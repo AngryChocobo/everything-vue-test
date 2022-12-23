@@ -1,7 +1,7 @@
 import { createVNode, defineComponent } from "vue";
 import "@/defineCustomElements";
 
-describe("webcomponent <TodoFilter />", () => {
+describe("Visual", () => {
   it("should have three filters", () => {
     const Comp = defineComponent({
       setup() {
@@ -15,6 +15,9 @@ describe("webcomponent <TodoFilter />", () => {
       .find('[data-cy="filter-item"]')
       .should("have.length", 3);
   });
+});
+
+describe("Behavioral", () => {
   it("should have default checked filter 'All'", () => {
     const Comp = defineComponent({
       setup() {

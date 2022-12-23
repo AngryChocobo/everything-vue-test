@@ -1,7 +1,7 @@
 import { createVNode, defineComponent } from "vue";
 import "@/defineCustomElements";
 
-describe("webcomponent <TodoInput />", () => {
+describe("Visual", () => {
   it("renders", () => {
     const Comp = defineComponent({
       setup() {
@@ -15,6 +15,9 @@ describe("webcomponent <TodoInput />", () => {
       .find('[data-cy="todo-input"]')
       .should("have.attr", "placeholder", "press enter add todo");
   });
+});
+
+describe("Behavioral", () => {
   it("should input", () => {
     const Comp = defineComponent({
       setup() {

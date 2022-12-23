@@ -1,6 +1,6 @@
 import TodoInput from "./TodoInput.vue";
 
-describe("<TodoInput />", () => {
+describe("Visual", () => {
   it("renders", () => {
     cy.mount(TodoInput);
     cy.get('[data-cy="todo-input"]').should("exist");
@@ -10,6 +10,9 @@ describe("<TodoInput />", () => {
       "press enter add todo"
     );
   });
+});
+
+describe("Behavioral", () => {
   it("should input", () => {
     cy.mount(TodoInput);
     cy.get('[data-cy="todo-input"]').type("饿了");

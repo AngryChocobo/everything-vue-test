@@ -16,16 +16,16 @@ const mockData = () => [
   },
 ];
 
-describe("<TodoApp />", () => {
-  beforeEach(() => {
-    cy.intercept(
-      {
-        method: "GET",
-        url: "/todos",
-      },
-      mockData()
-    ).as("getUsers");
-  });
+beforeEach(() => {
+  cy.intercept(
+    {
+      method: "GET",
+      url: "/todos",
+    },
+    mockData()
+  ).as("getUsers");
+});
+describe("Visual", () => {
   it("should render todolist", () => {
     const Comp = defineComponent({
       setup() {
@@ -39,7 +39,9 @@ describe("<TodoApp />", () => {
       .find('[data-cy="todo-item"]')
       .should("have.length", 3);
   });
+});
 
+describe("Behavioral", () => {
   it("should remove deleted item", () => {
     const Comp = defineComponent({
       setup() {

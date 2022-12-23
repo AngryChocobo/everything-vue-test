@@ -15,21 +15,23 @@ const mockData = () => [
   },
 ];
 
-describe("<TodoApp />", () => {
-  beforeEach(() => {
-    cy.intercept(
-      {
-        method: "GET",
-        url: "/todos",
-      },
-      mockData()
-    ).as("getUsers");
-  });
+beforeEach(() => {
+  cy.intercept(
+    {
+      method: "GET",
+      url: "/todos",
+    },
+    mockData()
+  ).as("getUsers");
+});
+
+describe("Visual", () => {
   it("should render todolist", () => {
     cy.mount(TodoApp);
     cy.get('[data-cy="todo-item"]').should("have.length", 3);
   });
-
+});
+describe("Behavioral", () => {
   it("should remove deleted item", () => {
     cy.mount(TodoApp);
     cy.get('[data-cy="delete-btn"]').first().click();
