@@ -25,3 +25,7 @@
 - [ ] vue2 vanilla
 - [ ] vue2 + elementUI
 - [ ] vue3 + ant-design-vue
+
+## Test Case Refactor
+
+- [x] test case should category `Visual` and `Behavioral`
