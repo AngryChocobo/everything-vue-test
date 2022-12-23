@@ -18,7 +18,7 @@
 - [x] vue2 + elementUI
 - [x] vue3 + ant-design-vue
 - [x] mock API
-- [ ] web components
+- [x] web components
 
 ## E2E Test Works
 
