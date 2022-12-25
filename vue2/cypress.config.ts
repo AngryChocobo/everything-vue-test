@@ -1,7 +1,7 @@
 import { defineConfig } from "cypress";
 
 export default defineConfig({
-  projectId: 'xyjqhg',
+  projectId: "xyjqhg",
   component: {
     devServer: {
       framework: "vue-cli",
@@ -11,4 +11,5 @@ export default defineConfig({
   e2e: {
     experimentalRunAllSpecs: true,
   },
+  video: false,
 });
