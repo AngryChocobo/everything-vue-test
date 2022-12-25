@@ -25,6 +25,5 @@
     "tests/**/*.tsx",
     "cypress/support/component.ts"
   ],
-  "exclude": ["node_modules"],
-  "skipLibCheck": true
+  "exclude": ["node_modules"]
 }
