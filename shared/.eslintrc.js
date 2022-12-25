@@ -1,1 +1,6 @@
-module.exports = {};
+module.exports = {
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+  },
+};
