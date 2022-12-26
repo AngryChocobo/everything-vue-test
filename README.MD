@@ -8,9 +8,9 @@
 
 - [x] monorepo
 - [x] shared ts type, hooks and logic
-- [ ] CI/CD
+- [x] CI/CD
 - [ ] define UI librarys element selector find helper function
-- [ ] turbo task chain
+- [x] turbo task chain
 
 ## Components Test Works
 
