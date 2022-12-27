@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:unit": "turbo run test:unit",
-    "build": "turbo run build",
-    "oldOrange": "turbo run oldOrange"
+    "build": "turbo run build"
   },
   "keywords": [
     "vue",
