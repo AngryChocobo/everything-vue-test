@@ -14,9 +14,10 @@
 
 ## Components Test Works
 
-- [x] vue2 vanilla
-- [x] vue2 + elementUI
-- [x] vue3 + ant-design-vue
+- [x] vue2 vanilla TodoApp
+- [x] vue2 + elementUI TodoApp
+- [x] vue3 + ant-design-vue TodoApp
+- [ ] vue3 + ag-grid (complex table component)
 - [x] mock API
 - [x] web components
 - [x] pinia for vue3
@@ -24,9 +25,9 @@
 
 ## E2E Test Works
 
-- [x] vue2 vanilla
-- [x] vue2 + elementUI
-- [ ] vue3 + ant-design-vue
+- [x] vue2 vanilla TodoApp
+- [x] vue2 + elementUI TodoApp
+- [ ] vue3 + ant-design-vue TodoApp
 - [x] vue-router for vue2
 - [ ] vue-router for vue3
 
