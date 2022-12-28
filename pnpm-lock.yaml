@@ -87,6 +87,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^4.18.0
       '@typescript-eslint/parser': ^4.18.0
       '@vue/cli-plugin-babel': ~4.5.15
+      '@vue/cli-plugin-e2e-cypress': ^5.0.8
       '@vue/cli-plugin-eslint': ~4.5.15
       '@vue/cli-plugin-router': ~4.5.15
       '@vue/cli-plugin-typescript': ~4.5.15
@@ -122,6 +123,7 @@ importers:
       '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/4.33.0_ogx3qw5rmqzsibzudo3scjzs5q
       '@typescript-eslint/parser': registry.npmmirror.com/@typescript-eslint/parser/4.33.0_j5k3gtgvc7l7uexttprsfsq27m
       '@vue/cli-plugin-babel': registry.npmmirror.com/@vue/cli-plugin-babel/4.5.19_jvqvmmlpgf756ibxf7tcf3g6ve
+      '@vue/cli-plugin-e2e-cypress': registry.npmmirror.com/@vue/cli-plugin-e2e-cypress/5.0.8_h3fckz63yod26nif24o4lcpcia
       '@vue/cli-plugin-eslint': registry.npmmirror.com/@vue/cli-plugin-eslint/4.5.19_hyhmufahxcw27rqrflrkcet6tm
       '@vue/cli-plugin-router': registry.npmmirror.com/@vue/cli-plugin-router/4.5.19_@vue+cli-service@4.5.19
       '@vue/cli-plugin-typescript': registry.npmmirror.com/@vue/cli-plugin-typescript/4.5.19_uxpg476rya4lgo33b4te3mikqy
@@ -250,6 +252,17 @@ packages:
     name: '@achrinza/node-ipc'
     version: 9.2.2
     engines: {node: 8 || 10 || 12 || 14 || 16 || 17}
+    dependencies:
+      '@node-ipc/js-queue': registry.npmmirror.com/@node-ipc/js-queue/2.0.3
+      event-pubsub: registry.npmmirror.com/event-pubsub/4.3.0
+      js-message: registry.npmmirror.com/js-message/1.0.7
+    dev: true
+
+  registry.npmmirror.com/@achrinza/node-ipc/9.2.6:
+    resolution: {integrity: sha512-ULSIYPy4ZPM301dfCxRz0l2GJjOwIo/PqmWonIu1bLml7UmnVQmH+juJcoyXp6E8gIRRNAjGYftJnNQlfy4vPg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@achrinza/node-ipc/-/node-ipc-9.2.6.tgz}
+    name: '@achrinza/node-ipc'
+    version: 9.2.6
+    engines: {node: 8 || 9 || 10 || 11 || 12 || 13 || 14 || 15 || 16 || 17 || 18 || 19}
     dependencies:
       '@node-ipc/js-queue': registry.npmmirror.com/@node-ipc/js-queue/2.0.3
       event-pubsub: registry.npmmirror.com/event-pubsub/4.3.0
@@ -4438,6 +4451,24 @@ packages:
       - webpack-command
     dev: true
 
+  registry.npmmirror.com/@vue/cli-plugin-e2e-cypress/5.0.8_h3fckz63yod26nif24o4lcpcia:
+    resolution: {integrity: sha512-BasFHQSqDAmFvueaqk/d+s1hJnW0OtWEIgmHZRXg8hYkZJF4pu7kz66DmEAZl6DypfyoSxqwN7WHILYDuKAaEw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/cli-plugin-e2e-cypress/-/cli-plugin-e2e-cypress-5.0.8.tgz}
+    id: registry.npmmirror.com/@vue/cli-plugin-e2e-cypress/5.0.8
+    name: '@vue/cli-plugin-e2e-cypress'
+    version: 5.0.8
+    peerDependencies:
+      '@vue/cli-service': ^3.0.0 || ^4.0.0 || ^5.0.0-0
+      cypress: '*'
+    dependencies:
+      '@vue/cli-service': registry.npmmirror.com/@vue/cli-service/4.5.19_ufa2kzteqiab4k5lypbbm4vvai
+      '@vue/cli-shared-utils': registry.npmmirror.com/@vue/cli-shared-utils/5.0.8
+      cypress: registry.npmmirror.com/cypress/12.1.0
+      eslint-plugin-cypress: registry.npmmirror.com/eslint-plugin-cypress/2.12.1_eslint@7.32.0
+    transitivePeerDependencies:
+      - encoding
+      - eslint
+    dev: true
+
   registry.npmmirror.com/@vue/cli-plugin-eslint/4.5.19_hyhmufahxcw27rqrflrkcet6tm:
     resolution: {integrity: sha512-53sa4Pu9j5KajesFlj494CcO8vVo3e3nnZ1CCKjGGnrF90id1rUeepcFfz5XjwfEtbJZp2x/NoX/EZE6zCzSFQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/cli-plugin-eslint/-/cli-plugin-eslint-4.5.19.tgz}
     id: registry.npmmirror.com/@vue/cli-plugin-eslint/4.5.19
@@ -4696,6 +4727,27 @@ packages:
       request: registry.npmmirror.com/request/2.88.2
       semver: registry.npmmirror.com/semver/6.3.0
       strip-ansi: registry.npmmirror.com/strip-ansi/6.0.1
+    dev: true
+
+  registry.npmmirror.com/@vue/cli-shared-utils/5.0.8:
+    resolution: {integrity: sha512-uK2YB7bBVuQhjOJF+O52P9yFMXeJVj7ozqJkwYE9PlMHL1LMHjtCYm4cSdOebuPzyP+/9p0BimM/OqxsevIopQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/cli-shared-utils/-/cli-shared-utils-5.0.8.tgz}
+    name: '@vue/cli-shared-utils'
+    version: 5.0.8
+    dependencies:
+      '@achrinza/node-ipc': registry.npmmirror.com/@achrinza/node-ipc/9.2.6
+      chalk: registry.npmmirror.com/chalk/4.1.2
+      execa: registry.npmmirror.com/execa/1.0.0
+      joi: registry.npmmirror.com/joi/17.7.0
+      launch-editor: registry.npmmirror.com/launch-editor/2.6.0
+      lru-cache: registry.npmmirror.com/lru-cache/6.0.0
+      node-fetch: registry.npmmirror.com/node-fetch/2.6.7
+      open: registry.npmmirror.com/open/8.4.0
+      ora: registry.npmmirror.com/ora/5.4.1
+      read-pkg: registry.npmmirror.com/read-pkg/5.2.0
+      semver: registry.npmmirror.com/semver/7.3.8
+      strip-ansi: registry.npmmirror.com/strip-ansi/6.0.1
+    transitivePeerDependencies:
+      - encoding
     dev: true
 
   registry.npmmirror.com/@vue/compiler-core/3.2.45:
@@ -5935,7 +5987,7 @@ packages:
     name: axios
     version: 1.2.1
     dependencies:
-      follow-redirects: registry.npmmirror.com/follow-redirects/1.15.2_debug@4.3.4
+      follow-redirects: registry.npmmirror.com/follow-redirects/1.15.2
       form-data: registry.npmmirror.com/form-data/4.0.0
       proxy-from-env: registry.npmmirror.com/proxy-from-env/1.1.0
     transitivePeerDependencies:
@@ -8089,6 +8141,7 @@ packages:
         optional: true
     dependencies:
       ms: registry.npmmirror.com/ms/2.1.2
+    dev: true
 
   registry.npmmirror.com/debug/4.3.4_supports-color@6.1.0:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/debug/-/debug-4.3.4.tgz}
@@ -8199,6 +8252,13 @@ packages:
     version: 1.0.4
     dependencies:
       clone: registry.npmmirror.com/clone/1.0.4
+    dev: true
+
+  registry.npmmirror.com/define-lazy-prop/2.0.0:
+    resolution: {integrity: sha512-Ds09qNh8yw3khSjiJjiUInaGX9xlqZDY7JVryGxdxV7NPeuqQfplOpQ66yJFZut3jLa5zOwkXw1g9EI2uKh4Og==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/define-lazy-prop/-/define-lazy-prop-2.0.0.tgz}
+    name: define-lazy-prop
+    version: 2.0.0
+    engines: {node: '>=8'}
     dev: true
 
   registry.npmmirror.com/define-properties/1.1.4:
@@ -8858,6 +8918,18 @@ packages:
       object-hash: registry.npmmirror.com/object-hash/1.3.1
       rimraf: registry.npmmirror.com/rimraf/2.7.1
       webpack: registry.npmmirror.com/webpack/4.46.0
+    dev: true
+
+  registry.npmmirror.com/eslint-plugin-cypress/2.12.1_eslint@7.32.0:
+    resolution: {integrity: sha512-c2W/uPADl5kospNDihgiLc7n87t5XhUbFDoTl6CfVkmG+kDAb5Ux10V9PoLPu9N+r7znpc+iQlcmAqT1A/89HA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/eslint-plugin-cypress/-/eslint-plugin-cypress-2.12.1.tgz}
+    id: registry.npmmirror.com/eslint-plugin-cypress/2.12.1
+    name: eslint-plugin-cypress
+    version: 2.12.1
+    peerDependencies:
+      eslint: '>= 3.2.1'
+    dependencies:
+      eslint: registry.npmmirror.com/eslint/7.32.0
+      globals: registry.npmmirror.com/globals/11.12.0
     dev: true
 
   registry.npmmirror.com/eslint-plugin-cypress/2.12.1_eslint@8.29.0:
@@ -10019,6 +10091,17 @@ packages:
       readable-stream: registry.npmmirror.com/readable-stream/2.3.7
     dev: true
 
+  registry.npmmirror.com/follow-redirects/1.15.2:
+    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/follow-redirects/-/follow-redirects-1.15.2.tgz}
+    name: follow-redirects
+    version: 1.15.2
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+
   registry.npmmirror.com/follow-redirects/1.15.2_debug@4.3.4:
     resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/follow-redirects/-/follow-redirects-1.15.2.tgz}
     id: registry.npmmirror.com/follow-redirects/1.15.2
@@ -10032,6 +10115,7 @@ packages:
         optional: true
     dependencies:
       debug: registry.npmmirror.com/debug/4.3.4
+    dev: true
 
   registry.npmmirror.com/for-in/1.0.2:
     resolution: {integrity: sha512-7EwmXrOjyL+ChxMhmG5lnW9MPt1aIeZEwKhQzoBUdTV0N3zuwWDZYVJatDvZ2OyzPUvdIAZDsCetk3coyMfcnQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/for-in/-/for-in-1.0.2.tgz}
@@ -10964,7 +11048,7 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       eventemitter3: registry.npmmirror.com/eventemitter3/4.0.7
-      follow-redirects: registry.npmmirror.com/follow-redirects/1.15.2_debug@4.3.4
+      follow-redirects: registry.npmmirror.com/follow-redirects/1.15.2
       requires-port: registry.npmmirror.com/requires-port/1.0.0
     transitivePeerDependencies:
       - debug
@@ -13403,6 +13487,7 @@ packages:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ms/-/ms-2.1.2.tgz}
     name: ms
     version: 2.1.2
+    dev: true
 
   registry.npmmirror.com/ms/2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ms/-/ms-2.1.3.tgz}
@@ -13934,6 +14019,17 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       is-wsl: registry.npmmirror.com/is-wsl/1.1.0
+    dev: true
+
+  registry.npmmirror.com/open/8.4.0:
+    resolution: {integrity: sha512-XgFPPM+B28FtCCgSb9I+s9szOC1vZRSwgWsRUA5ylIxRTgKozqjOCrVOqGsYABPYK5qnfqClxZTFBa8PKt2v6Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/open/-/open-8.4.0.tgz}
+    name: open
+    version: 8.4.0
+    engines: {node: '>=12'}
+    dependencies:
+      define-lazy-prop: registry.npmmirror.com/define-lazy-prop/2.0.0
+      is-docker: registry.npmmirror.com/is-docker/2.2.1
+      is-wsl: registry.npmmirror.com/is-wsl/2.2.0
     dev: true
 
   registry.npmmirror.com/opener/1.5.2:
