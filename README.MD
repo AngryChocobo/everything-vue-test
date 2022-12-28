@@ -24,10 +24,11 @@
 
 ## E2E Test Works
 
-- [ ] vue2 vanilla
-- [ ] vue2 + elementUI
+- [x] vue2 vanilla
+- [x] vue2 + elementUI
 - [ ] vue3 + ant-design-vue
-- [ ] vue-router
+- [x] vue-router for vue2
+- [ ] vue-router for vue3
 
 ## Test Case Refactor
 
