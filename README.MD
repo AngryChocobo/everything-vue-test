@@ -22,6 +22,7 @@
 - [x] web components
 - [x] pinia for vue3
 - [ ] vuex for vue2
+- [ ] $t i18n
 
 ## E2E Test Works
 
@@ -100,4 +101,14 @@ Cypress.Commands.add("mount", (component, args = {}) => {
 // cypress/support/component.ts
 import { createPinia, setActivePinia } from "pinia";
 setActivePinia(createPinia());
+```
+
+- 如何使用全局函数，如$t ?
+
+```ts
+// cypress/support/component.ts
+Cypress.Commands.add("mount", (component: any, args: any = {}) => {
+  args.global.mocks = args.global.mocks || {};
+  args.global.mocks.$xss = xss;
+});
 ```
