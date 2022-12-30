@@ -8,26 +8,29 @@
 
 - [x] monorepo
 - [x] shared ts type, hooks and logic
-- [ ] CI/CD
+- [x] CI/CD
 - [ ] define UI librarys element selector find helper function
-- [ ] turbo task chain
+- [x] turbo task chain
 
 ## Components Test Works
 
-- [x] vue2 vanilla
-- [x] vue2 + elementUI
-- [x] vue3 + ant-design-vue
+- [x] vue2 vanilla TodoApp
+- [x] vue2 + elementUI TodoApp
+- [x] vue3 + ant-design-vue TodoApp
+- [ ] vue3 + ag-grid (complex table component)
 - [x] mock API
 - [x] web components
 - [x] pinia for vue3
 - [ ] vuex for vue2
+- [ ] $t i18n
 
 ## E2E Test Works
 
-- [ ] vue2 vanilla
-- [ ] vue2 + elementUI
-- [ ] vue3 + ant-design-vue
-- [ ] vue-router
+- [x] vue2 vanilla TodoApp
+- [x] vue2 + elementUI TodoApp
+- [ ] vue3 + ant-design-vue TodoApp
+- [x] vue-router for vue2
+- [ ] vue-router for vue3
 
 ## Test Case Refactor
 
@@ -98,4 +101,14 @@ Cypress.Commands.add("mount", (component, args = {}) => {
 // cypress/support/component.ts
 import { createPinia, setActivePinia } from "pinia";
 setActivePinia(createPinia());
+```
+
+- 如何使用全局函数，如$t ?
+
+```ts
+// cypress/support/component.ts
+Cypress.Commands.add("mount", (component: any, args: any = {}) => {
+  args.global.mocks = args.global.mocks || {};
+  args.global.mocks.$xss = xss;
+});
 ```

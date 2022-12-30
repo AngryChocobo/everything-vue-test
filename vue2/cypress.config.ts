@@ -10,6 +10,7 @@ export default defineConfig({
   },
   e2e: {
     experimentalRunAllSpecs: true,
+    baseUrl: "http://localhost:10234",
   },
   video: false,
 });

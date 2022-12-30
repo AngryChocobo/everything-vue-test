@@ -1,5 +1,5 @@
 <template>
-  <div class="item">
+  <div data-cy="welcome-item" class="item">
     <i>
       <slot name="icon"></slot>
     </i>

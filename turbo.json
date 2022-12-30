@@ -17,8 +17,15 @@
       "dependsOn": ["build", "test", "lint"],
       "outputs": []
     },
-    "oldOrange": {
-      "outputs": ["dist/**", "build/**"]
+    "shared#build": {},
+    "vue2#build": {
+      "dependsOn": ["shared#build"]
+    },
+    "vue3#build": {
+      "dependsOn": ["shared#build"]
+    },
+    "webcomponents#build": {
+      "dependsOn": ["shared#build"]
     }
   }
 }

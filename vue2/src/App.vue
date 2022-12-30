@@ -1,8 +1,13 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/"> vanilla TodoApp </router-link> |
-      <router-link to="/element2">element2 TodoApp</router-link>
+      <router-link to="/" data-cy="routerlink-vanilla">
+        vanilla TodoApp
+      </router-link>
+      |
+      <router-link to="/element2" data-cy="routerlink-element2"
+        >element2 TodoApp</router-link
+      >
     </div>
     <router-view />
   </div>
