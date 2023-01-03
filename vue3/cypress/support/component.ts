@@ -45,14 +45,16 @@ declare global {
 // Cypress.Commands.add("mount", mount);
 
 import { createPinia, setActivePinia } from "pinia";
+import { i18n } from "@/plugins/i18n";
 setActivePinia(createPinia());
 
-Cypress.Commands.add("mount", (component, args: any = {}) => {
+Cypress.Commands.add("mount", (component: any, args: any = {}) => {
   args.global = args.global || {};
   args.global.plugins = args.global.plugins || [];
+  args.global.plugins.push(i18n);
   // 改用按需加载就不需要手动配置plugin了
   // args.global.plugins.push(Antdv);
-  return mount(component, args);
+  return mount(component, args) as any;
 });
 
 // Example use:

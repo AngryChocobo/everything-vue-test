@@ -1,6 +1,6 @@
 <template>
   <div data-cy="todo-app" id="todo-app-antdv">
-    <h1>antdv todos app</h1>
+    <h1>{{ $t("todoAppTitle") }}</h1>
     <TodoItem
       v-for="item in displayList"
       :key="item.label"

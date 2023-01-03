@@ -22,7 +22,7 @@
 - [x] web components
 - [x] pinia for vue3
 - [ ] vuex for vue2
-- [ ] $t i18n
+- [x] $t i18n
 
 ## E2E Test Works
 

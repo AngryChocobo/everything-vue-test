@@ -30,6 +30,15 @@ describe("Visual", () => {
     cy.mount(TodoApp);
     cy.get('[data-cy="todo-item"]').should("have.length", 3);
   });
+  it("should i18n", () => {
+    cy.mount(TodoApp).as("instance");
+    cy.get("h1").should("include.text", "antdv todos app");
+    cy.get("@instance").then((args: any) => {
+      args.wrapper.vm.$i18n.locale = "zh";
+    });
+
+    cy.get("h1").should("include.text", "antdv 待办清单");
+  });
 });
 describe("Behavioral", () => {
   it("should remove deleted item", () => {
