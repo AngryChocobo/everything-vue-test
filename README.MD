@@ -28,9 +28,9 @@
 
 - [x] vue2 vanilla TodoApp
 - [x] vue2 + elementUI TodoApp
-- [ ] vue3 + ant-design-vue TodoApp
+- [x] vue3 + ant-design-vue TodoApp
 - [x] vue-router for vue2
-- [ ] vue-router for vue3
+- [x] vue-router for vue3
 
 ## Test Case Refactor
 
