@@ -40,8 +40,6 @@
 
 - cy 中 contain.text 和 include.text 的区别？
 
-- TodoApp 中，当删除一项时，list 中要减少对应项，这个该如何写 case 呢？
-
 - 如何修改 props？ （data 同理）
 
 ```ts
