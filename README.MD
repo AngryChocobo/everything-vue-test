@@ -9,7 +9,7 @@
 - [x] monorepo
 - [x] shared ts type, hooks and logic
 - [x] CI/CD
-- [ ] define UI librarys element selector find helper function
+- [ ] define custom cyress command to help query dom and select them
 - [x] turbo task chain
 
 ## Components Test Works
