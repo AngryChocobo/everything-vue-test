@@ -36,11 +36,16 @@
 
 - [x] test case should category `Visual` and `Behavioral`
 
-## 记录问题
+---
 
-- cy 中 contain.text 和 include.text 的区别？
+## Questions Record
 
-- 如何修改 props？ （data 同理）
+- the difference between `contain.text` and `include.text`
+
+- how to modify vue props and data
+
+<details>
+  <summary> show </summary>
 
 ```ts
 cy.mount(TodoItem, {
@@ -59,7 +64,12 @@ cy.get("@vue").then((current: any) => {
 });
 ```
 
+</details>
+
 - 如何测试依赖 elemenet2 的组件（vue2）？
+
+<details>
+  <summary> show </summary>
 
 ```ts
 // cypress/support/component.ts
@@ -73,7 +83,12 @@ Cypress.Commands.add("mount", (component, args = {}) => {
 });
 ```
 
+</details>
+
 - 如何测试依赖 antdv 的组件（vue3）？
+
+<details>
+  <summary> show </summary>
 
 分两种情况
 
@@ -93,13 +108,20 @@ Cypress.Commands.add("mount", (component, args = {}) => {
 });
 ```
 
+</details>
+
 - 如何测试 pinia ？
+
+<details>
+  <summary> show </summary>
 
 ```ts
 // cypress/support/component.ts
 import { createPinia, setActivePinia } from "pinia";
 setActivePinia(createPinia());
 ```
+
+</details>
 
 - 如何使用全局函数，如$t ?
 
@@ -110,3 +132,5 @@ Cypress.Commands.add("mount", (component: any, args: any = {}) => {
   args.global.mocks.$xss = xss;
 });
 ```
+
+</details>
