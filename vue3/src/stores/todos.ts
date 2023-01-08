@@ -9,7 +9,7 @@ const filters = {
   [TodoFilterEnum.Done]: (todos: Todo[]) => todos.filter((v) => v.isDone),
 };
 
-export const useTodoList = defineStore("todolist", () => {
+export const useTodoListStore = defineStore("todolist", () => {
   const [list, setList] = useState<Todo[]>([]);
   const [filter, setFilter] = useState<TodoFilterEnum>(TodoFilterEnum.All);
   const displayList = computed(() => {

@@ -3,7 +3,7 @@ import type { Todo } from "shared";
 
 import axios from "axios";
 
-export function useTodoList() {
+export function useTodoListStore() {
   const [todoList, setTodoList] = useState([]);
   return {
     todoList,

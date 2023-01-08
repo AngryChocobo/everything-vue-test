@@ -1,4 +1,4 @@
-import { useTodoList } from "@/stores/todos";
+import { useTodoListStore } from "@/stores/todos";
 import { setActivePinia, createPinia } from "pinia";
 import { TodoFilterEnum } from "shared";
 
@@ -10,11 +10,11 @@ describe("store", () => {
     setActivePinia(createPinia());
   });
   it("should have default state", () => {
-    const store = useTodoList();
+    const store = useTodoListStore();
     expect(store.list.length).to.equal(0);
   });
   it("should add todo ", () => {
-    const store = useTodoList();
+    const store = useTodoListStore();
     expect(store.list.length).to.equal(0);
     store.addTodo("in pinia");
     expect(store.list.length).to.equal(1);
@@ -26,7 +26,7 @@ describe("store", () => {
   });
 
   it("should delete todo", () => {
-    const store = useTodoList();
+    const store = useTodoListStore();
     expect(store.list.length).to.equal(0);
     store.addTodo("in pinia");
     store.deleteTodo(store.list[0]);
@@ -34,7 +34,7 @@ describe("store", () => {
   });
 
   it("should toggle status", () => {
-    const store = useTodoList();
+    const store = useTodoListStore();
     store.addTodo("in pinia");
     expect(store.list[0].isDone).to.equal(false);
     store.toggleTodo(store.list[0], true);
@@ -43,7 +43,7 @@ describe("store", () => {
     expect(store.list[0].isDone).to.equal(false);
   });
   it("should filter displayList", () => {
-    const store = useTodoList();
+    const store = useTodoListStore();
     store.addTodo("todo 1");
     store.addTodo("done 1");
     store.toggleTodo(store.list[1], true);

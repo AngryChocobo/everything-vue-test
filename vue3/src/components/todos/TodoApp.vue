@@ -23,10 +23,10 @@ import TodoItem from "./TodoItem.vue";
 import TodoInput from "./TodoInput.vue";
 import TodoFilter from "./TodoFilter.vue";
 import { fetchTodoList } from "@/hook/useTodoList";
-import { useTodoList } from "@/stores/todos";
+import { useTodoListStore } from "@/stores/todos";
 import { storeToRefs } from "pinia";
 
-const store = useTodoList();
+const store = useTodoListStore();
 const { deleteTodo, toggleTodo, addTodo, setFilter } = store;
 const { displayList, filter } = storeToRefs(store);
 
