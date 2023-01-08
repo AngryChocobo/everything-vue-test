@@ -4,3 +4,4 @@ packages:
   - "vue3/**"
   - "webcomponents/**"
   - "shared/**"
+  - "react-todo/**"

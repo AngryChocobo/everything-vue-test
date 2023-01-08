@@ -17,6 +17,7 @@
 - [x] vue2 vanilla TodoApp
 - [x] vue2 + elementUI TodoApp
 - [x] vue3 + ant-design-vue TodoApp
+- [ ] react vanilla TodoApp
 - [x] mock API
 - [x] web components
 - [x] pinia for vue3
