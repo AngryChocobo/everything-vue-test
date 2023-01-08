@@ -17,14 +17,6 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import("../components/todos/TodoApp.vue"),
     },
-    {
-      path: "/ag-grid",
-      name: "ag-grid",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import("../components/ag-grid/index.vue"),
-    },
   ],
 });
 

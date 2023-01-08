@@ -17,7 +17,6 @@
 - [x] vue2 vanilla TodoApp
 - [x] vue2 + elementUI TodoApp
 - [x] vue3 + ant-design-vue TodoApp
-- [ ] vue3 + ag-grid (complex table component)
 - [x] mock API
 - [x] web components
 - [x] pinia for vue3
