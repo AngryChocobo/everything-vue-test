@@ -16,7 +16,7 @@ export default defineConfig({
   server: {
     port: 9999,
     fs: {
-      allow: [".."], // 解决 查找css文件 403：xx is outside of Vite serving allow list.
+      allow: ["../../"], // 解决 查找css文件 403：xx is outside of Vite serving allow list.
     },
   },
   resolve: {
