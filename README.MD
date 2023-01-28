@@ -39,12 +39,13 @@
 
 ## Questions Record
 
-- the difference between `contain.text` and `include.text`
-
-- how to modify vue props and data
+<details>
+    <summary> the difference between `contain.text` and `include.text` </summary>
+  No difference. `include`(value) Aliases: `contain, includes, contains`
+  </details>
 
 <details>
-  <summary> show </summary>
+  <summary> how to modify vue props and data </summary>
 
 ```ts
 cy.mount(TodoItem, {
@@ -65,10 +66,8 @@ cy.get("@vue").then((current: any) => {
 
 </details>
 
-- 如何测试依赖 elemenet2 的组件（vue2）？
-
 <details>
-  <summary> show </summary>
+  <summary> 如何测试依赖 elemenet2 的组件（vue2） </summary>
 
 ```ts
 // cypress/support/component.ts
@@ -84,10 +83,8 @@ Cypress.Commands.add("mount", (component, args = {}) => {
 
 </details>
 
-- 如何测试依赖 antdv 的组件（vue3）？
-
 <details>
-  <summary> show </summary>
+  <summary> 如何测试依赖 antdv 的组件（vue3） </summary>
 
 分两种情况
 
@@ -109,10 +106,8 @@ Cypress.Commands.add("mount", (component, args = {}) => {
 
 </details>
 
-- 如何测试 pinia ？
-
 <details>
-  <summary> show </summary>
+  <summary> 如何测试 pinia </summary>
 
 ```ts
 // cypress/support/component.ts
@@ -122,7 +117,8 @@ setActivePinia(createPinia());
 
 </details>
 
-- 如何使用全局函数，如$t ?
+<details>
+  <summary> 如何使用全局函数，如$t </summary>
 
 ```ts
 // cypress/support/component.ts
