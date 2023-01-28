@@ -40,11 +40,6 @@
 ## Questions Record
 
 <details>
-    <summary> the difference between `contain.text` and `include.text` </summary>
-  No difference. `include`(value) Aliases: `contain, includes, contains`
-  </details>
-
-<details>
   <summary> how to modify vue props and data </summary>
 
 ```ts
