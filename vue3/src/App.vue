@@ -22,7 +22,7 @@ import { RouterLink, RouterView } from "vue-router";
 
     <div style="height: 100%; margin-top: 30px">
       <ag-grid-vue
-        style="width: 1000px; height: 600px"
+        style="width: 600px; height: 300px"
         class="ag-theme-alpine"
         :columnDefs="columnDefs"
         @grid-ready="onGridReady"
@@ -82,6 +82,7 @@ export default {
           field: "color1",
           cellRenderer: "ColourCellRenderer",
           cellEditor: "agTextCellEditor",
+          width: "400px",
         },
         {
           headerName: "Select Editor",
@@ -89,6 +90,7 @@ export default {
           cellRenderer: "ColourCellRenderer",
           cellEditor: "agSelectCellEditor",
           cellEditorParams: { values: colors },
+          width: "200px",
         },
         {
           headerName: "Rich Select Editor",
@@ -100,6 +102,7 @@ export default {
             values: colors,
             cellRenderer: "ColourCellRenderer",
           },
+          width: "200px",
         },
         {
           headerName: "Large Text Editor",
@@ -107,6 +110,7 @@ export default {
           // cellEditorPopup: true,
           cellEditor: "agLargeTextCellEditor",
           flex: 2,
+          width: "200px",
         },
       ],
       gridApi,
@@ -134,6 +138,8 @@ export default {
         // this.colorIndex++;
         // this.colorIndex = this.colorIndex % 3;
         this.rowData[0].color1 = this.currentColor;
+        debugger;
+        // this.gridApi.sizeColumnsToFit();
       }, 3000);
     },
 

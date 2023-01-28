@@ -5,9 +5,25 @@ import ToolingIcon from "./icons/IconTooling.vue";
 import EcosystemIcon from "./icons/IconEcosystem.vue";
 import CommunityIcon from "./icons/IconCommunity.vue";
 import SupportIcon from "./icons/IconSupport.vue";
+import { watch } from "vue";
+
+const props = defineProps<{
+  vv: string;
+}>();
+
+watch(
+  () => props.vv,
+  (newValue) => {
+    console.log("vv:", newValue);
+  },
+  {
+    // immediate: true,
+  }
+);
 </script>
 
 <template>
+  vv: {{ vv }}
   <WelcomeItem>
     <template #icon>
       <DocumentationIcon />
